@@ -1,0 +1,214 @@
+19:12:08.642 [main] INFO  c.a.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 38176 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+19:12:08.645 [main] INFO  c.a.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+19:12:09.327 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:12:09.327 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:12:09.328 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+19:12:09.407 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:12:09.609 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+19:15:45.541 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 39820 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+19:15:45.544 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+19:15:46.213 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:15:46.214 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:15:46.214 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+19:15:46.286 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:15:46.565 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+19:15:46.572 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-9201"]
+19:15:46.573 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+19:15:46.576 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-9201"]
+19:15:46.576 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-9201"]
+19:16:12.590 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 18820 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+19:16:12.592 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+19:16:13.252 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:16:13.252 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:16:13.252 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+19:16:13.322 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:16:13.624 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+19:16:13.646 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.316 seconds (JVM running for 2.868)
+19:33:25.043 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 41636 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+19:33:25.047 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+19:33:25.676 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:33:25.677 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:33:25.677 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+19:33:25.749 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:33:26.055 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+19:33:26.076 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.316 seconds (JVM running for 2.752)
+19:33:54.143 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:51:42.972 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 984 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+20:51:42.976 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+20:51:43.649 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:51:43.650 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:51:43.650 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+20:51:43.728 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:51:44.020 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:51:44.042 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.344 seconds (JVM running for 2.752)
+20:51:51.966 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:54:56.099 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 7676 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+20:54:56.102 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+20:54:56.776 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:54:56.777 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:54:56.777 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+20:54:56.863 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:54:57.209 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:54:57.232 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.431 seconds (JVM running for 2.875)
+20:55:15.466 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:56:26.059 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 45936 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+20:56:26.062 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+20:56:26.758 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:56:26.759 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:56:26.759 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+20:56:26.851 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:56:27.143 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:56:27.164 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.362 seconds (JVM running for 2.979)
+20:57:28.337 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 32596 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+20:57:28.339 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+20:57:29.010 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:57:29.010 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:57:29.010 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+20:57:29.080 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:57:29.378 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:57:29.400 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.336 seconds (JVM running for 2.931)
+20:57:35.215 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:02:39.174 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 32416 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:02:39.177 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:02:39.816 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:02:39.816 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:02:39.817 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:02:39.890 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:02:40.201 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:02:40.225 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.347 seconds (JVM running for 2.904)
+21:02:48.731 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:03:48.672 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 4224 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:03:48.675 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:03:49.347 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:03:49.347 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:03:49.347 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:03:49.418 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:03:49.709 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:03:49.731 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.34 seconds (JVM running for 2.868)
+21:04:00.970 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:04:43.186 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 50376 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:04:43.188 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:04:43.789 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:04:43.789 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:04:43.789 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:04:43.854 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:04:44.121 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:04:44.143 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.186 seconds (JVM running for 2.631)
+21:04:47.518 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:04:59.976 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 20032 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:04:59.978 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:05:00.584 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:05:00.584 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:05:00.585 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:05:00.653 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:05:00.939 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:05:00.960 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.218 seconds (JVM running for 2.701)
+21:05:02.534 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:05:30.976 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 50452 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:05:30.977 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:05:31.556 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:05:31.556 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:05:31.557 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:05:31.622 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:05:31.910 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:05:31.930 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.192 seconds (JVM running for 2.521)
+21:05:35.384 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:06:35.281 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 27556 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:06:35.284 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:06:35.938 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:06:35.938 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:06:35.939 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:06:36.008 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:06:36.300 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:06:36.322 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.307 seconds (JVM running for 2.692)
+21:06:39.107 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:07:19.117 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 50280 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:07:19.120 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:07:19.776 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:07:19.777 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:07:19.777 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:07:19.857 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:07:20.151 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:07:20.173 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.319 seconds (JVM running for 2.675)
+21:07:22.216 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:08:19.819 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 51024 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:08:19.821 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:08:20.403 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:08:20.403 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:08:20.403 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:08:20.470 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:08:20.757 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:08:20.778 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.192 seconds (JVM running for 2.453)
+21:08:23.333 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:09:00.710 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 51104 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:09:00.713 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:09:01.303 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:09:01.303 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:09:01.303 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:09:01.370 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:09:01.635 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:09:01.655 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.172 seconds (JVM running for 2.474)
+21:09:04.524 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:09:42.754 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 22280 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:09:42.758 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:09:43.473 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:09:43.473 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:09:43.473 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:09:43.542 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:09:43.831 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:09:43.855 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.392 seconds (JVM running for 2.993)
+21:09:46.827 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:10:30.634 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 50552 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:10:30.636 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:10:31.299 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:10:31.299 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:10:31.299 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:10:31.379 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:10:31.682 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:10:31.703 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.35 seconds (JVM running for 2.927)
+21:10:34.575 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:11:33.834 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 31604 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:11:33.837 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:11:34.453 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:11:34.454 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:11:34.454 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:11:34.558 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:11:34.841 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:11:34.863 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.262 seconds (JVM running for 2.707)
+21:11:44.043 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:13:49.959 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 50776 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:13:49.960 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:13:50.553 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:13:50.553 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:13:50.553 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:13:50.622 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:13:50.889 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:13:50.909 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.176 seconds (JVM running for 2.664)
+21:14:06.810 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:15:02.984 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 21724 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:15:02.987 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:15:03.657 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:15:03.658 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:15:03.658 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:15:03.728 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:15:04.016 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:15:04.055 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.331 seconds (JVM running for 3.114)
+21:15:05.134 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:15:25.901 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 30120 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:15:25.903 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:15:26.488 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:15:26.488 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:15:26.488 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:15:26.553 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:15:26.838 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:15:26.858 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.183 seconds (JVM running for 2.672)
+21:15:27.653 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:15:51.611 [main] INFO  c.w.s.SystemApplication - [logStarting,55] - Starting SystemApplication using Java 11.0.4 on LAPTOP-8O33MAPC with PID 27888 (D:\Project\part-time_project\student-teacher\system-base\target\classes started by 17128 in D:\Project\part-time_project\student-teacher\system-base)
+21:15:51.615 [main] INFO  c.w.s.SystemApplication - [logStartupProfileInfo,640] - No active profile set, falling back to 1 default profile: "default"
+21:15:52.239 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+21:15:52.239 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:15:52.239 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.60]
+21:15:52.309 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:15:52.605 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+21:15:52.625 [main] INFO  c.w.s.SystemApplication - [logStarted,61] - Started SystemApplication in 1.278 seconds (JVM running for 2.745)
+21:15:55.222 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
