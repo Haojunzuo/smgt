@@ -16,22 +16,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="type"    column="type"    />
         <result property="location"    column="location"    />
         <result property="file"    column="file"    />
+        <result property="phone"    column="phone"    />
     </resultMap>
 
     <sql id="selectLeaveVo">
-        select student_id, start_time, id, end_time, reason, status, user_id, result, type from student_leave
+        select student_id, start_time, id, end_time, reason, status, user_id, result, type, phone, location from student_leave
     </sql>
 
     <select id="selectLeaveList" parameterType="Leave" resultMap="LeaveResult">
         <include refid="selectLeaveVo"/>
         <where>
             <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
         </where>
     </select>
 
-    <select id="selectLeaveByStudentId" parameterType="Long" resultMap="LeaveResult">
+    <select id="selectLeaveById" parameterType="Long" resultMap="LeaveResult">
         <include refid="selectLeaveVo"/>
-        where student_id = #{studentId}
+        where id = #{id}
     </select>
 
 <!--    <select id="selectallData" resultMap="LeaveResult">-->
@@ -51,6 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">type,</if>
             <if test="location != null">location,</if>
             <if test="file != null">file,</if>
+            <if test="phone != null">phone,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="studentId != null">#{studentId},</if>
@@ -63,11 +67,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">#{type},</if>
             <if test="location != null">#{location},</if>
             <if test="file != null">#{file},</if>
+            <if test="phone != null">#{phone},</if>
          </trim>
     </insert>
 
     <update id="updateLeave" parameterType="Leave">
-        insert into student_leave
+        update  student_leave
         <trim prefix="SET" suffixOverrides=",">
             <if test="studentId != null">student_id = #{studentId},</if>
             <if test="startTime != null">start_time = #{startTime},</if>
@@ -79,6 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="type != null">type = #{type},</if>
             <if test="location != null">location = #{location},</if>
             <if test="file != null">file = #{file},</if>
+            <if test="phone != null">phone = #{phone},</if>
         </trim>
         where id = #{id}
     </update>

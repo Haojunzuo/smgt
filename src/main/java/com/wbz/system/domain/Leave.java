@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class Leave {
+public class Leave extends BaseEntity{
 
     private Long id;
     private Long studentId;
     private Long userId;
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date endTime;
     private String reason;
     private Integer status;
@@ -17,6 +19,7 @@ public class Leave {
     private Integer type;
     private String location;
     private String file;
+    private String phone;
 
     public Long getId() {
         return id;
@@ -106,6 +109,14 @@ public class Leave {
         this.file = file;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Leave{" +
@@ -120,6 +131,7 @@ public class Leave {
                 ", type=" + type +
                 ", location='" + location + '\'' +
                 ", file='" + file + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

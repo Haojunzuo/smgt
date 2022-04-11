@@ -14,44 +14,44 @@ import java.util.List;
 public class LeaveServiceImpl implements LeaveService
 {
     @Autowired
-    private LeaveMapper LeaveMapper;
+    private LeaveMapper leaveMapper;
 
     @Override
-    public Leave selectLeaveByStudentId(Long studentId)
+    public Leave selectLeaveByStudentId(Long id)
     {
-        return LeaveMapper.selectLeaveByStudentId(studentId);
+        return leaveMapper.selectLeaveById(id);
     }
 
     @Override
     public List<Leave> selectLeaveList(Leave Leave)
     {
-        return LeaveMapper.selectLeaveList(Leave);
+        return leaveMapper.selectLeaveList(Leave);
     }
 
     @Override
     public int insertLeave(Leave Leave)
     {
 //        Leave.setCreateTime(new Date());
-        return LeaveMapper.insertLeave(Leave);
+        return leaveMapper.insertLeave(Leave);
     }
 
     @Override
     public int updateLeave(Leave Leave)
     {
 //        Leave.setUpdateTime(new Date());
-        return LeaveMapper.updateLeave(Leave);
+        return leaveMapper.updateLeave(Leave);
     }
 
     @Override
     public int deleteLeaveByIds(Long[] ids)
     {
-        return LeaveMapper.deleteLeaveByIds(ids);
+        return leaveMapper.deleteLeaveByIds(ids);
     }
 
     @Override
     public int deleteLeaveById(Long id)
     {
-        return LeaveMapper.deleteLeaveById(id);
+        return leaveMapper.deleteLeaveById(id);
     }
 
 //    /**

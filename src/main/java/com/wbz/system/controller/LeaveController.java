@@ -3,7 +3,9 @@ package com.wbz.system.controller;
 import com.wbz.system.domain.AjaxResult;
 import com.wbz.system.domain.Leave;
 import com.wbz.system.domain.TableDataInfo;
+import com.wbz.system.utils.PageUtils;
 import com.wbz.system.service.LeaveService;
+import com.wbz.system.utils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,19 +15,26 @@ import java.io.IOException;
 import java.util.List;
 
 
+
 @RestController
 @RequestMapping("/leave")
 public class LeaveController {
+
     @Autowired
     private LeaveService LeaveService;
 
-//    @GetMapping("/list")
-//    public TableDataInfo list(Leave Leave)
-//    {
-//        startPage();
-//        List<Leave> list = LeaveService.selectLeaveList(Leave);
-//        return getDataTable(list);
-//    }
+
+    @GetMapping("/list")
+    public TableDataInfo list(Leave leave)
+    {
+        System.out.println(leave.toString());
+        Integer pageNum = leave.getPageNum();
+        Integer pageSize = leave.getPageSize();
+        String orderBy = leave.getOrderBy();
+        PageUtils.startMyPage(pageNum, pageSize, orderBy);
+        List<Leave> list = LeaveService.selectLeaveList(leave);
+        return PageUtils.getMyDataTable(list);
+    }
 
 //    @PostMapping("/export")
 //    public void export(HttpServletResponse response, Leave Leave) throws IOException
@@ -35,15 +44,15 @@ public class LeaveController {
 //        util.exportExcel(response, list, "人员类别数据");
 //    }
 
-    @GetMapping(value = "/{studentId}")
-    public AjaxResult getInfo(@PathVariable("studentId") Long studentId)
+    @GetMapping(value = "/{id}")
+    public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return AjaxResult.success(LeaveService.selectLeaveByStudentId(studentId));
+        return AjaxResult.success(LeaveService.selectLeaveByStudentId(id));
     }
 
     @PostMapping
-    public AjaxResult add(@RequestBody Leave Leave) {
-        return toAjax(LeaveService.insertLeave(Leave));
+    public AjaxResult add(@RequestBody Leave leave) {
+        return toAjax(LeaveService.insertLeave(leave));
     }
 
     private AjaxResult toAjax(int rows) {
@@ -51,8 +60,9 @@ public class LeaveController {
     }
 
     @PutMapping
-    public AjaxResult edit(@RequestBody Leave Leave) {
-        return toAjax(LeaveService.updateLeave(Leave));
+    public AjaxResult edit(@RequestBody Leave leave) {
+        System.out.println(leave.toString());
+        return toAjax(LeaveService.updateLeave(leave));
     }
 
 	@DeleteMapping("/{ids}")

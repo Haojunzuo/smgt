@@ -11,4 +11,8 @@ spring:
 mybatis:
   typeAliasesPackage: com.wbz.system
   mapperLocations: classpath:mapper/**/*.xml
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
 

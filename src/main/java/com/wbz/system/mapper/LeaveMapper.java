@@ -1,14 +1,13 @@
 package com.wbz.system.mapper;
 
 import com.wbz.system.domain.Leave;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
+
 public interface LeaveMapper {
     
-    public Leave selectLeaveByStudentId(Long studentId);
+    public Leave selectLeaveById(Long id);
 
     public List<Leave> selectLeaveList(Leave Leave);
 

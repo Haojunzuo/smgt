@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface LeaveService
 {
-    public Leave selectLeaveByStudentId(Long studentId);
+    public Leave selectLeaveByStudentId(Long id);
 
     public List<Leave> selectLeaveList(Leave Leave);
 

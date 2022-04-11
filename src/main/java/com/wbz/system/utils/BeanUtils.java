@@ -218,7 +218,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
         try {
             target = destClass.newInstance();
             copyProperties(target, orig);
-            return target;
+            return (T) target;
         } catch (Exception var4) {
             handleReflectionException(var4);
             return null;
@@ -360,7 +360,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
     }
 
     public static <T> T cast(Object obj) {
-        return obj;
+        return (T) obj;
     }
 
     public static void copyBeanProp(Object dest, Object src) {
