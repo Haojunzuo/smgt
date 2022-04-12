@@ -79,4 +79,7 @@ public class UserController {
         List<Res> menus = resService.selectMenuTreeByUserId(role);
         return resService.buildMenus(menus);
     }
+
+
+
 }

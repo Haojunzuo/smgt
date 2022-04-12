@@ -20,6 +20,9 @@ public class Leave extends BaseEntity{
     private String location;
     private String file;
     private String phone;
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date checkTime;
+    private String detailLocation;
 
     public Long getId() {
         return id;
@@ -117,6 +120,22 @@ public class Leave extends BaseEntity{
         this.phone = phone;
     }
 
+    public Date getCheckTime() {
+        return checkTime;
+    }
+
+    public void setCheckTime(Date checkTime) {
+        this.checkTime = checkTime;
+    }
+
+    public String getDetailLocation() {
+        return detailLocation;
+    }
+
+    public void setDetailLocation(String detailLocation) {
+        this.detailLocation = detailLocation;
+    }
+
     @Override
     public String toString() {
         return "Leave{" +
@@ -132,6 +151,8 @@ public class Leave extends BaseEntity{
                 ", location='" + location + '\'' +
                 ", file='" + file + '\'' +
                 ", phone='" + phone + '\'' +
+                ", checkTime=" + checkTime +
+                ", detailLocation='" + detailLocation + '\'' +
                 '}';
     }
 }
