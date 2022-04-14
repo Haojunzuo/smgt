@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.StudentMapper">
+
+    <resultMap type="Student" id="StudentResult">
+        <result property="id"    column="id"    />
+        <result property="studentNo"    column="studentNo"    />
+        <result property="userId"    column="user_id"    />
+        <result property="birth"    column="birth"    />
+        <result property="nation"    column="nation"    />
+        <result property="politicalStatus"    column="political_status"    />
+        <result property="bloodType"    column="blood_type"    />
+        <result property="maritalStatus"    column="marital_status"    />
+        <result property="healthStatus"    column="health_status"    />
+        <result property="religious"    column="religious"    />
+        <result property="country"    column="country"    />
+        <result property="address"    column="address"    />
+        <result property="residence"    column="residence"    />
+        <result property="identity"    column="identity"    />
+        <result property="instructorId"    column="instructor_id"    />
+        <result property="grade"    column="grade"    />
+        <result property="collegeNo"    column="collegeNo"    />
+        <result property="classNo"    column="classNo"    />
+        <association property="instructor"    column="user_id" javaType="User" resultMap="userResult" />
+        <association property="classInfo"    column="classNo" javaType="ClassInfo" resultMap="classResult" />
+        <association property="collegeInfo"    column="collegeNo" javaType="CollegeInfo" resultMap="collegeResult" />
+    </resultMap>
+
+    <resultMap id="userResult" type="User">
+        <id     property="userId"       column="user_id"      />
+        <result property="userName"     column="user_name"    />
+        <result property="nickName"     column="nick_name"    />
+        <result property="password"     column="password"     />
+        <result property="role"     column="role"     />
+        <result property="email"        column="email"        />
+        <result property="phoneNumber"  column="phone_number"  />
+        <result property="sex"          column="sex"          />
+        <result property="avatar"       column="avatar"       />
+        <result property="status"       column="status"       />
+        <result property="createBy"     column="create_by"    />
+        <result property="createTime"   column="create_time"  />
+        <result property="updateBy"     column="update_by"    />
+        <result property="updateTime"   column="update_time"  />
+        <result property="remark"       column="remark"       />
+    </resultMap>
+
+    <resultMap id="classResult" type="ClassInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="classNo" jdbcType="VARCHAR" property="classno" />
+        <result column="className" jdbcType="VARCHAR" property="classname" />
+        <result column="studentNumber" jdbcType="INTEGER" property="studentnumber"/>
+    </resultMap>
+
+    <resultMap id="collegeResult" type="CollegeInfo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="collegeNo" jdbcType="VARCHAR" property="collegeno" />
+        <result column="collegeName" jdbcType="VARCHAR" property="collegename" />
+    </resultMap>
+
+    <sql id="selectStudentVo">
+        select stu.*,
+        u.*,
+        c.*,
+        co.*
+        from student_info stu
+            left join user_info u on stu.instructor_id = u.user_id
+		    left join class_info c on c.classNo = stu.classNo
+		    left join college_info co on co.collegeNo = stu.collegeNo
+    </sql>
+
+    <select id="selectStudentList" parameterType="Student" resultMap="StudentResult">
+        <include refid="selectStudentVo"/>
+<!--        <where>-->
+<!--            <if test="status != null  and status != ''"> and status = #{status}</if>-->
+<!--            <if test="type != null  and type != ''"> and type = #{type}</if>-->
+<!--            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>-->
+<!--        </where>-->
+    </select>
+
+    <select id="selectStudentByUserId" parameterType="Long" resultMap="StudentResult">
+        <include refid="selectStudentVo"/>
+        where stu.user_id = #{userId}
+    </select>
+
+    <insert id="insertStudent" parameterType="Student">
+        insert into student_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentNo != null">studentNo,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="birth != null">birth,</if>
+            <if test="nation != null">nation,</if>
+            <if test="politicalStatus != null">political_status,</if>
+            <if test="bloodType != null">blood_type,</if>
+            <if test="maritalStatus != null">marital_status,</if>
+            <if test="healthStatus != null">health_status,</if>
+            <if test="religious != null">religious,</if>
+            <if test="country != null">country,</if>
+            <if test="address != null">address,</if>
+            <if test="residence != null">residence,</if>
+            <if test="identity != null">identity,</if>
+            <if test="instructorId != null">instructor_id,</if>
+            <if test="grade != null">grade,</if>
+            <if test="collegeNo != null">collegeNo,</if>
+            <if test="classNo != null">classNo,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentNo != null">#{studentNo},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="birth != null">#{birth},</if>
+            <if test="nation != null">#{nation},</if>
+            <if test="politicalStatus != null">#{politicalStatus},</if>
+            <if test="bloodType != null">#{bloodType},</if>
+            <if test="maritalStatus != null">#{maritalStatus},</if>
+            <if test="healthStatus != null">#{healthStatus},</if>
+            <if test="religious != null">#{religious},</if>
+            <if test="country != null">#{country},</if>
+            <if test="address != null">#{address},</if>
+            <if test="residence != null">#{residence},</if>
+            <if test="identity != null">#{identity},</if>
+            <if test="instructorId != null">#{instructorId},</if>
+            <if test="grade != null">#{grade},</if>
+            <if test="collegeNo != null">#{collegeNo},</if>
+            <if test="classNo != null">#{classNo},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStudent" parameterType="Student">
+        update  student_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="studentNo != null">studentNo = #{studentNo},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="birth != null">birth = #{birth},</if>
+            <if test="nation != null">nation = #{nation},</if>
+            <if test="politicalStatus != null">political_status = #{politicalStatus},</if>
+            <if test="bloodType != null">blood_type = #{bloodType},</if>
+            <if test="maritalStatus != null">marital_status = #{maritalStatus},</if>
+            <if test="healthStatus != null">health_status = #{healthStatus},</if>
+            <if test="religious != null">religious = #{religious},</if>
+            <if test="country != null">country = #{country},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="residence != null">residence = #{residence},</if>
+            <if test="identity != null">identity = #{identity},</if>
+            <if test="instructorId != null">instructor_id = #{instructorId},</if>
+            <if test="grade != null">grade = #{grade},</if>
+            <if test="collegeNo != null">collegeNo = #{collegeNo},</if>
+            <if test="classNo != null">classNo = #{classNo},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <delete id="deleteStudentById" parameterType="Long">
+        delete from student_Student where id = #{id}
+    </delete>
+
+    <delete id="deleteStudentByIds" parameterType="String">
+        delete from student_Student where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    <select id="judgeStaffCatCode" parameterType="String" resultMap="StudentResult">-->
+<!--        select *from staff_category where staff_cat_code = #{staffCatCode}-->
+<!--    </select>-->
+</mapper>

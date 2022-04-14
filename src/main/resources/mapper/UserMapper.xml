@@ -33,5 +33,88 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and user_info.role = #{role}
 	</select>
 
+	<select id="selectUserByUserId" parameterType="Long" resultMap="UserResult">
+		<include refid="selectUserVo"/>
+		where user_info.user_id = #{userId}
+	</select>
+
+	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="userId">
+		insert into user_info(
+		<if test="userId != null and userId != 0">user_id,</if>
+		<if test="userName != null and userName != ''">user_name,</if>
+		<if test="nickName != null and nickName != ''">nick_name,</if>
+		<if test="password != null and password != ''">password,</if>
+		<if test="role != null and role != ''">role,</if>
+		<if test="email != null and email != ''">email,</if>
+		<if test="phoneNumber != null and phoneNumber != ''">phone_number,</if>
+		<if test="sex != null and sex != ''">sex,</if>
+		<if test="avatar != null and avatar != ''">avatar,</if>
+		<if test="status != null and status != ''">status,</if>
+		<if test="createBy != null and createBy != ''">create_by,</if>
+		<if test="remark != null and remark != ''">remark,</if>
+		create_time
+		)values(
+		<if test="userId != null and userId != 0">#{userId},</if>
+		<if test="userName != null and userName != ''">#{userName},</if>
+		<if test="nickName != null and nickName != ''">#{nickName},</if>
+		<if test="password != null and password != ''">#{password},</if>
+		<if test="role != null and role != ''">#{role},</if>
+		<if test="email != null and email != ''">#{email},</if>
+		<if test="phoneNumber != null and phoneNumber != ''">#{phoneNumber},</if>
+		<if test="sex != null and sex != ''">#{sex},</if>
+		<if test="avatar != null and avatar != ''">#{avatar},</if>
+		<if test="status != null and status != ''">#{status},</if>
+		<if test="createBy != null and createBy != ''">#{createBy},</if>
+		<if test="remark != null and remark != ''">#{remark},</if>
+		sysdate()
+		)
+	</insert>
+
+	<update id="updateUser" parameterType="User">
+		update user_info
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="userName != null and userName != ''">user_name = #{userName},</if>
+			<if test="nickName != null and nickName != ''">nick_name = #{nickName},</if>
+			<if test="password != null and password != ''">password = #{password},</if>
+			<if test="role != null and role != ''">role = #{role},</if>
+			<if test="email != null and email != ''">email = #{email},</if>
+			<if test="phoneNumber != null and phoneNumber != ''">phone_number = #{phoneNumber},</if>
+			<if test="sex != null and sex != ''">sex = #{sex},</if>
+			<if test="avatar != null and avatar != ''">avatar = #{avatar},</if>
+			<if test="status != null and status != ''">status = #{status},</if>
+			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+			<if test="remark != null">remark = #{remark},</if>
+			update_time = sysdate()
+		</trim>
+		where user_id = #{userId}
+	</update>
+
+	<update id="updateUserAvatar" parameterType="User">
+ 		update user_info set avatar = #{avatar} where user_id = #{userId}
+	</update>
+
+	<update id="resetUserPwd" parameterType="User">
+ 		update user_info set password = #{password} where user_id = #{userId}
+	</update>
+
+	<delete id="deleteUserById" parameterType="Long">
+		update user_info set status = '0' where user_id = #{userId}
+ 	</delete>
+
+	<delete id="deleteUserByIds" parameterType="Long">
+		update sys_user_info set status = '0' where user_id in
+		<foreach collection="array" item="userId" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
+
+
+	<select id="checkPhoneUnique" parameterType="String" resultMap="UserResult">
+		select user_id, phone_number from user_info where phone_number = #{phoneNumber} limit 1
+	</select>
+
+	<select id="checkEmailUnique" parameterType="String" resultMap="UserResult">
+		select user_id, email from user_info where email = #{email} limit 1
+	</select>
 
 </mapper>

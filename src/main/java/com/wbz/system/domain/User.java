@@ -20,7 +20,7 @@ public class User {
     /** 用户电话 */
     private String phoneNumber;
     /** 用户性别 */
-    private Integer sex;
+    private String  sex;
     /** 用户状态 */
     private String status;
     /** 用户头像 */
@@ -94,11 +94,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
