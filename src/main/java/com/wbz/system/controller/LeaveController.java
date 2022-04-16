@@ -25,8 +25,7 @@ public class LeaveController {
 
 
     @GetMapping("/list")
-    public TableDataInfo list(Leave leave)
-    {
+    public TableDataInfo list(Leave leave) {
         System.out.println(leave.toString());
         Integer pageNum = leave.getPageNum();
         Integer pageSize = leave.getPageSize();

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ToRequestMapper">
+
+    <resultMap type="ToRequest" id="ToRequestResult">
+        <result property="id"    column="id"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="requestTime"    column="request_time"    />
+        <result property="toTime"    column="to_time"    />
+        <result property="toDetail"    column="to_detail"    />
+        <result property="status"    column="status"    />
+        <result property="userId"    column="user_id"    />
+        <result property="resultType"    column="result_type"    />
+        <result property="result"    column="result"    />
+        <result property="toType"    column="to_type"    />
+        <result property="toNum"    column="to_num"    />
+        <result property="location"    column="location"    />
+        <result property="imgFile"    column="img_file"    />
+        <result property="textFile"    column="text_file"    />
+        <result property="phone"    column="phone"    />
+        <result property="checkTime"    column="check_time"    />
+        <result property="detailLocation"    column="detail_location"    />
+</resultMap>
+
+    <sql id="selectToRequestVo">
+        select student_id, request_time, id, to_time, to_detail, status, user_id, result, result_type, to_type, phone, location, check_time, detail_location, to_num, img_file, text_file from student_request
+    </sql>
+
+    <select id="selectToRequestList" parameterType="ToRequest" resultMap="ToRequestResult">
+        <include refid="selectToRequestVo"/>
+        <where>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="toType != null  and toType != ''"> and result_type = #{resultType}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
+        </where>
+    </select>
+
+    <select id="selectToRequestById" parameterType="Long" resultMap="ToRequestResult">
+        <include refid="selectToRequestVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertToRequest" parameterType="ToRequest">
+        insert into student_request
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">student_id,</if>
+            <if test="requestTime != null">request_time,</if>
+            <if test="toTime != null">to_time,</if>
+            <if test="toDetail != null">to_detail,</if>
+            <if test="status != null">status,</if>
+            <if test="resultType != null">result_type,</if>
+            <if test="result != null">result,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="toType != null">to_type,</if>
+            <if test="location != null">location,</if>
+            <if test="imgFile != null">img_file,</if>
+            <if test="textFile != null">text_file,</if>
+            <if test="phone != null">phone,</if>
+            <if test="checkTime != null">check_time,</if>
+            <if test="detailLocation != null">detail_location,</if>
+            <if test="toNum != null">to_num,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">#{studentId},</if>
+            <if test="requestTime != null">#{requestTime},</if>
+            <if test="toTime != null">#{toTime},</if>
+            <if test="toDetail != null">#{toDetail},</if>
+            <if test="status != null">#{status},</if>
+            <if test="resultType != null">#{resultType},</if>
+            <if test="result != null">#{result},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="toType != null">#{toType},</if>
+            <if test="location != null">#{location},</if>
+            <if test="imgFile != null">#{imgFile},</if>
+            <if test="textFile != null">#{textFile},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="checkTime != null">#{checkTime},</if>
+            <if test="detailLocation != null">#{detailLocation},</if>
+            <if test="toNum != null">#{toNum},</if>
+         </trim>
+    </insert>
+
+    <update id="updateToRequest" parameterType="ToRequest">
+        update  student_request
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="studentId != null">student_id = #{studentId},</if>
+            <if test="requestTime != null">request_time = #{requestTime},</if>
+            <if test="toTime != null">to_time = #{toTime},</if>
+            <if test="toDetail != null">to_detail = #{toDetail},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="resultType != null">result_type = #{resultType},</if>
+            <if test="result != null">result = #{result},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="toType != null">to_type = #{toType},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="checkTime != null">check_time = #{checkTime},</if>
+            <if test="detailLocation != null">detail_location = #{detailLocation},</if>
+            <if test="imgFile != null">img_file = #{imgFile},</if>
+            <if test="textFile != null">text_file = #{textFile},</if>
+            <if test="toNum != null">to_num = #{toNum},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="updateToRequestStatus" parameterType="ToRequest">
+        update  student_request
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteToRequestById" parameterType="Long">
+        delete from student_request where id = #{id}
+    </delete>
+
+    <delete id="deleteToRequestByIds" parameterType="String">
+        delete from student_request where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    <select id="judgeStaffCatCode" parameterType="String" resultMap="ToRequestResult">-->
+<!--        select *from staff_category where staff_cat_code = #{staffCatCode}-->
+<!--    </select>-->
+</mapper>

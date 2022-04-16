@@ -2,6 +2,10 @@
 server:
   port: 9201
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   mvc:
     hiddenmethod:
       filter:
@@ -18,4 +22,8 @@ pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
+minio:
+  url: http://150.158.10.136:9000
+  accessKey: minio
+  secretKey: minio123.
 
