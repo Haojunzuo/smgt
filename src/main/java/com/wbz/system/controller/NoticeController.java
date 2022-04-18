@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -35,7 +36,7 @@ public class NoticeController {
 
     @PostMapping
     public AjaxResult add(@RequestBody Notice notice, HttpSession session){
-        notice.setNoticetime(new Timestamp(System.currentTimeMillis()));
+        notice.setNoticetime(new Date());
         Long userId = (Long) session.getAttribute("userId");
         notice.setPublisher(String.valueOf(userId));
         return toAjax(noticeService.insertNotice(notice));

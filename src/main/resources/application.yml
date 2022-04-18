@@ -1,6 +1,9 @@
 # Tomcat
 server:
   port: 9201
+  servlet:
+    session:
+      timeout: 120m
 spring:
   servlet:
     multipart:
@@ -26,4 +29,3 @@ minio:
   url: http://150.158.10.136:9000
   accessKey: minio
   secretKey: minio123.
-

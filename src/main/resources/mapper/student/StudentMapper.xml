@@ -23,9 +23,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="grade"    column="grade"    />
         <result property="collegeNo"    column="collegeNo"    />
         <result property="classNo"    column="classNo"    />
+        <result property="orgSchool"    column="org_school"    />
+        <result property="planType"    column="plan_type"    />
+        <result property="stuType"    column="stu_type"    />
+        <result property="inTime"    column="in_time"    />
+        <result property="major"    column="major"    />
+        <result property="length"    column="length"    />
+        <result property="expectedGradu"    column="expected_gradu"    />
+        <result property="schoolStatus"    column="school_status"    />
+        <result property="status"    column="status"    />
+        <result property="userName"    column="user_name"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="email"    column="email"    />
+        <result property="phoneNumber"    column="phone_number"    />
+        <result property="sex"    column="sex"    />
+        <result property="detailAddress"    column="detail_address"    />
+        <result property="detailResidence"    column="detail_residence"    />
+
+
         <association property="instructor"    column="user_id" javaType="User" resultMap="userResult" />
+        <association property="user"    column="user_id" javaType="User" resultMap="userResult" />
         <association property="classInfo"    column="classNo" javaType="ClassInfo" resultMap="classResult" />
         <association property="collegeInfo"    column="collegeNo" javaType="CollegeInfo" resultMap="collegeResult" />
+
     </resultMap>
 
     <resultMap id="userResult" type="User">
@@ -66,6 +86,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         co.*
         from student_info stu
             left join user_info u on stu.instructor_id = u.user_id
+
 		    left join class_info c on c.classNo = stu.classNo
 		    left join college_info co on co.collegeNo = stu.collegeNo
     </sql>

@@ -26,9 +26,28 @@ public class Student extends BaseEntity{
     private String collegeNo;
     private String classNo;
 
+    private String orgSchool;
+    private String planType;
+    private String stuType;
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    private Date inTime;
+    private String major;
+    private String length;
+    private String expectedGradu;
+    private String schoolStatus;
+    private String status;
+
     private User instructor;
     private ClassInfo classInfo;
     private CollegeInfo collegeInfo;
+    private String userName;
+    private String nickName;
+    private String email;
+    private String phoneNumber;
+    private String sex;
+    private String detailAddress;
+    private String detailResidence;
+
 
     public Long getId() {
         return id;
@@ -198,6 +217,142 @@ public class Student extends BaseEntity{
         this.collegeInfo = collegeInfo;
     }
 
+    public Long getInstructorId() {
+        return instructorId;
+    }
+
+    public void setInstructorId(Long instructorId) {
+        this.instructorId = instructorId;
+    }
+
+    public String getOrgSchool() {
+        return orgSchool;
+    }
+
+    public void setOrgSchool(String orgSchool) {
+        this.orgSchool = orgSchool;
+    }
+
+    public String getPlanType() {
+        return planType;
+    }
+
+    public void setPlanType(String planType) {
+        this.planType = planType;
+    }
+
+    public String getStuType() {
+        return stuType;
+    }
+
+    public void setStuType(String stuType) {
+        this.stuType = stuType;
+    }
+
+    public Date getInTime() {
+        return inTime;
+    }
+
+    public void setInTime(Date inTime) {
+        this.inTime = inTime;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getExpectedGradu() {
+        return expectedGradu;
+    }
+
+    public void setExpectedGradu(String expectedGradu) {
+        this.expectedGradu = expectedGradu;
+    }
+
+    public String getSchoolStatus() {
+        return schoolStatus;
+    }
+
+    public void setSchoolStatus(String schoolStatus) {
+        this.schoolStatus = schoolStatus;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDetailAddress() {
+        return detailAddress;
+    }
+
+    public void setDetailAddress(String detailAddress) {
+        this.detailAddress = detailAddress;
+    }
+
+    public String getDetailResidence() {
+        return detailResidence;
+    }
+
+    public void setDetailResidence(String detailResidence) {
+        this.detailResidence = detailResidence;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -219,9 +374,25 @@ public class Student extends BaseEntity{
                 ", grade='" + grade + '\'' +
                 ", collegeNo='" + collegeNo + '\'' +
                 ", classNo='" + classNo + '\'' +
+                ", orgSchool='" + orgSchool + '\'' +
+                ", planType='" + planType + '\'' +
+                ", stuType='" + stuType + '\'' +
+                ", inTime=" + inTime +
+                ", major='" + major + '\'' +
+                ", length='" + length + '\'' +
+                ", expectedGradu='" + expectedGradu + '\'' +
+                ", schoolStatus='" + schoolStatus + '\'' +
+                ", status='" + status + '\'' +
                 ", instructor=" + instructor +
                 ", classInfo=" + classInfo +
                 ", collegeInfo=" + collegeInfo +
+                ", userName='" + userName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", sex='" + sex + '\'' +
+                ", detailAddress='" + detailAddress + '\'' +
+                ", detailResidence='" + detailResidence + '\'' +
                 '}';
     }
 }

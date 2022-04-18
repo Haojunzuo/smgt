@@ -1,7 +1,10 @@
 package com.wbz.system.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Notice extends BaseEntity {
 
@@ -16,7 +19,8 @@ public class Notice extends BaseEntity {
 
     private String publisher;
 
-    private Timestamp noticetime;
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    private Date noticetime;
 
     private String noticetype;
 
@@ -68,11 +72,11 @@ public class Notice extends BaseEntity {
         this.publisher = publisher;
     }
 
-    public Timestamp getNoticetime() {
+    public Date getNoticetime() {
         return noticetime;
     }
 
-    public void setNoticetime(Timestamp noticetime) {
+    public void setNoticetime(Date noticetime) {
         this.noticetime = noticetime;
     }
 
