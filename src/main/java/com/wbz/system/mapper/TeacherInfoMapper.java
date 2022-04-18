@@ -10,4 +10,6 @@ import java.util.List;
 public interface TeacherInfoMapper {
 
     List<TeacherInfo> selectAll(QueryVO queryVO);
+
+    List<TeacherInfo> selectTeacherList(TeacherInfo teacherInfo);
 }

@@ -1,20 +1,31 @@
 package com.wbz.system.domain;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 public class CourseInfo extends BaseEntity {
+
+    @ExcelProperty("id")
     private Long id;
 
+    @ExcelProperty("课程编号")
     private String courseno;
 
+    @ExcelProperty("课程名称")
     private String coursename;
 
+    @ExcelProperty("课程属性")
     private String courseattr;
 
+    @ExcelProperty("学分")
     private Integer credit;
 
-    private Integer totalHour;
+    @ExcelProperty("学时")
+    private Integer totalhour;
 
-    private Integer status;
+    @ExcelProperty("状态")
+    private String status;
 
+    @ExcelProperty("描述")
     private String description;
 
     public Long getId() {
@@ -57,19 +68,19 @@ public class CourseInfo extends BaseEntity {
         this.credit = credit;
     }
 
-    public Integer getTotalHour() {
-        return totalHour;
+    public Integer getTotalhour() {
+        return totalhour;
     }
 
-    public void setTotalHour(Integer totalHour) {
-        this.totalHour = totalHour;
+    public void setTotalhour(Integer totalhour) {
+        this.totalhour = totalhour;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -89,8 +100,8 @@ public class CourseInfo extends BaseEntity {
                 ", coursename='" + coursename + '\'' +
                 ", courseattr='" + courseattr + '\'' +
                 ", credit=" + credit +
-                ", totalHour=" + totalHour +
-                ", status=" + status +
+                ", totalhour=" + totalhour +
+                ", status='" + status + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

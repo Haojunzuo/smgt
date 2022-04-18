@@ -9,6 +9,8 @@ public class ClassInfo extends BaseEntity{
 
     private Integer studentnumber;
 
+    private String collegeno;
+
     public Long getId() {
         return id;
     }
@@ -41,6 +43,14 @@ public class ClassInfo extends BaseEntity{
         this.studentnumber = studentnumber;
     }
 
+    public String getCollegeno() {
+        return collegeno;
+    }
+
+    public void setCollegeno(String collegeno) {
+        this.collegeno = collegeno;
+    }
+
     @Override
     public String toString() {
         return "ClassInfo{" +
@@ -48,6 +58,7 @@ public class ClassInfo extends BaseEntity{
                 ", classno='" + classno + '\'' +
                 ", classname='" + classname + '\'' +
                 ", studentnumber=" + studentnumber +
+                ", collegeno='" + collegeno + '\'' +
                 '}';
     }
 }

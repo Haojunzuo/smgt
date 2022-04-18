@@ -8,10 +8,10 @@ import java.util.List;
 
 public class PageUtils {
     public static void startMyPage(Integer pageNum, Integer pageSize, String orderBy) {
-        if (BeanUtils.isNotEmpty(pageNum) && BeanUtils.isNotEmpty(pageSize) && BeanUtils.isNotEmpty(orderBy)) {
-//            if (BeanUtils.isNotEmpty(orderBy) && orderBy.matches("[a-zA-Z0-9_\\ \\,\\.]+")) {
-//                orderBy = "";
-//            }
+        if (BeanUtils.isNotEmpty(pageNum) && BeanUtils.isNotEmpty(pageSize)) {
+            if (BeanUtils.isNotEmpty(orderBy) && orderBy.matches("[a-zA-Z0-9_\\ \\,\\.]+")) {
+                orderBy = "";
+            }
             PageHelper.startPage(pageNum, pageSize, orderBy);
         }
     }

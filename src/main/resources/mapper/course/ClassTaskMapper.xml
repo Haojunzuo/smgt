@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wbz.system.mapper.ClassTaskMapper">
-    <resultMap id="BaseResultMap" type="com.wbz.system.domain.ClassTask">
+    <resultMap id="BaseResultMap" type="ClassTask">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="semester" jdbcType="VARCHAR" property="semester"/>
         <result column="collegeNo" jdbcType="VARCHAR" property="collegeno"/>
@@ -164,4 +164,130 @@
     <select id="selectByColumnName" resultType="java.lang.String" parameterType="java.lang.String">
        select distinct  ${columnName} from class_task
     </select>
+
+
+<!--分界线-->
+
+    <resultMap id="ClassTaskResult" type="ClassTask">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="semester" jdbcType="VARCHAR" property="semester"/>
+        <result column="collegeNo" jdbcType="VARCHAR" property="collegeno"/>
+        <result column="classNo" jdbcType="VARCHAR" property="classno"/>
+        <result column="courseNo" jdbcType="VARCHAR" property="courseno"/>
+        <result column="teacherNo" jdbcType="VARCHAR" property="teacherno"/>
+        <result column="courseAttr" jdbcType="VARCHAR" property="courseattr"/>
+        <result column="studentNumber" jdbcType="INTEGER" property="studentnumber"/>
+        <result column="weeksSum" jdbcType="INTEGER" property="weekssum"/>
+        <result column="weeksNumber" jdbcType="INTEGER" property="weeksnumber"/>
+        <result column="isFix" jdbcType="VARCHAR" property="isfix"/>
+        <result column="classTime" jdbcType="VARCHAR" property="classtime"/>
+    </resultMap>
+
+    <sql id="selectClassTaskVo">
+        select id, semester, collegeNo, classNo, courseNo, teacherNo, courseAttr, studentNumber, weeksSum, weeksNumber, isFix, classTime from class_task
+    </sql>
+
+    <select id="selectClassTaskList" parameterType="ClassTask" resultMap="ClassTaskResult">
+        <include refid="selectClassTaskVo"/>
+        <where>
+            <if test="id != null  and id != ''"> and id = #{id}</if>
+            <if test="semester != null  and semester != ''"> and semester like concat('%',#{semester},'%') </if>
+            <if test="collegeno != null  and collegeno != ''"> and collegeNo like concat('%',#{collegeno},'%')</if>
+            <if test="classno != null  and classno != ''"> and classNo like concat('%',#{classno},'%')</if>
+            <if test="courseno != null and courseno != ''"> and courseNo like concat('%',#{courseno},'%')</if>
+            <if test="teacherno != null and teacherno != ''"> and teacherNo like concat('%',#{teacherno},'%')</if>
+            <if test="courseattr != null and courseattr != ''"> and courseAttr like concat('%',#{courseattr},'%')</if>
+            <if test="studentnumber != null and studentnumber != ''"> and studentNumber = #{studentnumber}</if>
+            <if test="weekssum != null and weekssum != ''"> and weeksSum = #{weekssum}</if>
+            <if test="weeksnumber != null and weeksnumber != ''"> and weeksNumber = #{weeksnumber}</if>
+            <if test="isfix != null and isfix != ''"> and isFix like concat('%',#{isfix},'%')</if>
+            <if test="classtime != null and classtime != ''"> and classTime like concat('%',#{classtime},'%')</if>
+        </where>
+    </select>
+
+    <select id="checkCourseExist" parameterType="ClassTask" resultType="java.lang.Integer">
+        select count(1) from class_task
+        <where>
+            <if test="semester != null and semester != ''"> and semester= #{semester}</if>
+            <if test="collegeno != null and collegeno != ''"> and collegeNo= #{collegeno}</if>
+            <if test="classno != null and classno != ''"> and classNo= #{classno}</if>
+            <if test="courseno != null and courseno != ''"> and courseNo= #{courseno}</if>
+            <if test="id != null and id != ''"> and id != #{id}</if>
+        </where>
+    </select>
+
+    <insert id="insertClassTask" parameterType="ClassTask">
+        insert into class_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">id,</if>
+            <if test="semester!=null">semester,</if>
+            <if test="collegeno!=null">collegeNo,</if>
+            <if test="classno!=null">classNo,</if>
+            <if test="courseno!=null">courseNo,</if>
+            <if test="teacherno!=null">teacherNo,</if>
+            <if test="courseattr!=null">courseAttr,</if>
+            <if test="studentnumber!=null">studentNumber,</if>
+            <if test="weekssum!=null">weeksSum,</if>
+            <if test="weeksnumber!=null">weeksNumber,</if>
+            <if test="isfix!=null">isFix,</if>
+            <if test="classtime!=null">classTime,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="semester != null">#{semester},</if>
+            <if test="collegeno != null">#{collegeno},</if>
+            <if test="classno != null">#{classno},</if>
+            <if test="courseno != null">#{courseno},</if>
+            <if test="teacherno != null">#{teacherno},</if>
+            <if test="courseattr != null">#{courseattr},</if>
+            <if test="studentnumber != null">#{studentnumber},</if>
+            <if test="weekssum != null">#{weekssum},</if>
+            <if test="weeksnumber != null">#{weeksnumber},</if>
+            <if test="isfix != null">#{isfix},</if>
+            <if test="classtime != null">#{classtime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateClassTask" parameterType="ClassTask">
+        update  class_task
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="semester != null">semester = #{semester},</if>
+            <if test="collegeno != null">collegeNo = #{collegeno},</if>
+            <if test="classno != null">classNo = #{classno},</if>
+            <if test="courseno != null">courseNo = #{courseno},</if>
+            <if test="teacherno != null">teacherNo = #{teacherno},</if>
+            <if test="courseattr != null">courseAttr = #{courseattr},</if>
+            <if test="studentnumber != null">studentNumber = #{studentnumber},</if>
+            <if test="weekssum != null">weeksSum = #{weekssum},</if>
+            <if test="weeksnumber != null">weeksNumber = #{weeksnumber},</if>
+            <if test="isfix != null">isFix = #{isfix},</if>
+            <if test="classtime != null">classTime = #{classtime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <select id="selectClassTaskById" parameterType="java.lang.Long" resultMap="ClassTaskResult">
+        <include refid="selectClassTaskVo"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delClassTask" parameterType="String">
+        delete from class_task where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <insert id="insertClassTaskByBatch" parameterType="java.util.List">
+        insert into class_task (id,semester,collegeNo, classNo, courseNo, teacherNo, courseAttr, studentNumber, weeksSum, weeksNumber, isFix, classTime)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=BIGINT},#{item.semester,jdbcType=VARCHAR},#{item.collegeno,jdbcType=VARCHAR},#{item.classno,jdbcType=VARCHAR},#{item.courseno,jdbcType=VARCHAR},
+             #{item.teacherno,jdbcType=VARCHAR},#{item.courseattr,jdbcType=VARCHAR},#{item.studentnumber,jdbcType=INTEGER},#{item.weekssum,jdbcType=INTEGER},
+             #{item.weeksnumber,jdbcType=INTEGER},#{item.isfix,jdbcType=VARCHAR},#{item.classtime,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+
 </mapper>

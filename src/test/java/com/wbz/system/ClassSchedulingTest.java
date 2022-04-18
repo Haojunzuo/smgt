@@ -19,7 +19,7 @@ public class ClassSchedulingTest {
     public void codingTimeTest() {
         ClassTask classTask = new ClassTask();
         classTask.setSemester("2015-2016-1");
-        if(courseService.classScheduling(classTask)){
+        if(courseService.classScheduling(classTask)==1){
             System.out.println("成功成功");
         }else{
             System.out.println("失败失败");

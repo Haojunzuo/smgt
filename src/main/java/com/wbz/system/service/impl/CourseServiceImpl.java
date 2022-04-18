@@ -49,12 +49,44 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseInfo> selectCourseInfoList(CourseInfo courseInfo) {
         return courseInfoMapper.selectCourseInfoList(courseInfo);
     }
+    @Override
+    public int insertCourse(CourseInfo courseInfo){
+        return courseInfoMapper.insertCourse(courseInfo);
+    }
+    @Override
+    public int updateCourse(CourseInfo courseInfo){
+        return courseInfoMapper.updateCourse(courseInfo);
+    }
+
+    @Override
+    public String checkno(String courseno, CourseInfo courseInfo) {
+        System.out.println(courseInfo.getCourseno()+"hhhhhh"+courseno);
+        int size = courseInfoMapper.checkno(courseno, courseInfo.getId());
+        if (size>0) return "false";
+        return "true";
+    }
+
+    @Override
+    public CourseInfo selectCourseById(Long id) {
+        return courseInfoMapper.selectCourseById(id);
+    }
+
+    @Override
+    public int delCourse(Long[] ids) {
+        return courseInfoMapper.delCourse(ids);
+    }
+
+    @Override
+    public void insertCourseByBatch(List<CourseInfo> list) {
+        courseInfoMapper.insertCourseByBatch(list);
+    }
 
 
     //先将再全校范围内分配的教学楼信息做一个查询（针对特殊要求的教室）
     @Transactional
     @Override
-    public Boolean classScheduling(ClassTask classTask) {
+    public int classScheduling(ClassTask classTask) {
+        long start = System.currentTimeMillis();
         try {
             //第一步先获得开课任务
             List<ClassTask> classTaskList = classTaskMapper.selectBySemester(classTask);
@@ -70,20 +102,23 @@ public class CourseServiceImpl implements CourseService {
             List<String> resultList = finalResult(individualMap);
             //第七步对分配好时间教室的基因进行解码，准备存入数据库
             List<CoursePlan> coursePlanList = decoding(resultList);
+            coursePlanMapper.clearCoursePlan();
             for (CoursePlan coursePlan : coursePlanList) {
                 coursePlanMapper.insertCoursePlan(coursePlan);//将分配好时间和教室的对象更新到数据库中的course_plan数据表中
-                teacherCourseMapper.insertTeacherCourse(coursePlan);//将分配好时间和教室的对象更新到数据库中的teacher_course数据表中
+//                teacherCourseMapper.insertTeacherCourse(coursePlan);//将分配好时间和教室的对象更新到数据库中的teacher_course数据表中
             }
+            System.out.println(System.currentTimeMillis()-start);
             //第八步将开课学期还有上课周数更新进上课计划表(course_plan)，在编码里不包括开课学期以及上课周数所以需要这一步操作
             for (ClassTask classTask1 : classTaskList) {
-                 coursePlanMapper.clearCoursePlan();
                 coursePlanMapper.updateCoursePlan(classTask1);
             }
             //操作全部完成
-            return true;
+            long end = System.currentTimeMillis();
+            System.out.println("排课结束！,耗时："+(end-start)+"ms");
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return 0;
         }
 
     }

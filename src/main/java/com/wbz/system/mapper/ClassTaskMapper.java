@@ -15,4 +15,20 @@ public interface ClassTaskMapper {
     int deleteByPrimaryKey(ClassTask classTask);
     List<ClassTask> selectBySemester(ClassTask classTask);
     List<String> selectByColumnName(@Param("columnName") String columnName);
+
+
+    List<ClassTask> selectClassTaskList(ClassTask classTask);
+
+    int checkCourseExist(ClassTask classTask);
+
+    int insertClassTask(ClassTask classTask);
+
+    ClassTask selectClassTaskById(Long id);
+
+    int updateClassTask(ClassTask classTask);
+
+    int delClassTask(Long[] ids);
+
+    void insertClassTaskByBatch(@Param("list") List<ClassTask> classTaskList);
+
 }

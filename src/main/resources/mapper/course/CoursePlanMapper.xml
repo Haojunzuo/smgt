@@ -125,4 +125,25 @@
 
         </if>
     </select>
+
+    <sql id="selectCoursePlanVo">
+        select id, collegeNo, classNo, courseNo, teacherNo, classroomNo, classTime, weeksSum, semester from course_plan
+    </sql>
+
+    <select id="selectCoursePlanList" parameterType="CoursePlan" resultMap="BaseResultMap">
+        <include refid="selectCoursePlanVo"/>
+        <where>
+            <if test="id != null  and id != ''"> and id = #{id}</if>
+            <if test="collegeno != null  and collegeno != ''"> and collegeNo like concat('%',#{collegeno},'%') </if>
+            <if test="classno != null  and classno != ''"> and classNo like concat('%',#{classno},'%') </if>
+            <if test="courseno != null  and courseno != ''"> and courseNo like concat('%',#{courseno},'%') </if>
+            <if test="teacherno != null  and teacherno != ''"> and teacherNo like concat('%',#{teacherno},'%')</if>
+            <if test="classroomno != null  and classroomno != ''"> and classroomNo like concat('%',#{classroomno},'%')</if>
+            <if test="classtime != null  and classtime != ''"> and classTime like concat('%',#{classtime},'%')</if>
+            <if test="semester != null  and semester != ''"> and semester like concat('%',#{semester},'%')</if>
+            <if test="weekssum != null and weekssum != ''"> and weeksSum = #{weekssum}</if>
+        </where>
+    </select>
+
+
 </mapper>

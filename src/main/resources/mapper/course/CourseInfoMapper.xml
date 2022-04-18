@@ -41,11 +41,15 @@
     <result property="courseno" column="courseNo"/>
     <result property="coursename" column="courseName"/>
     <result property="courseattr" column="courseAttr"/>
+    <result property="credit" column="credit"/>
+    <result property="status" column="status"/>
+    <result property="totalhour" column="totalHour"/>
+    <result property="description" column="description"/>
   </resultMap>
 
   <sql id="selectCourseInfoVo">
-    select id, courseNo, courseName, courseAttr, credit, totalHour status, description from course_info
-  </sql>
+select id, courseNo, courseName, courseAttr, credit, status, totalHour, description from course_info
+</sql>
 
   <select id="selectCourseInfoList" parameterType="CourseInfo" resultMap="CourseInfoResult">
     <include refid="selectCourseInfoVo"/>
@@ -54,10 +58,77 @@
       <if test="courseno != null  and courseno != ''"> and courseNo like concat('%',#{courseno},'%') </if>
       <if test="coursename != null  and coursename != ''"> and courseName like concat('%',#{coursename},'%')</if>
       <if test="courseattr != null  and courseattr != ''"> and courseAttr like concat('%',#{courseattr},'%')</if>
-       <if test="credit != null and credit != ''"> and credit = #{credit}</if>
-       <if test="totalHour != null and totalHour != ''"> and totalHour = #{totalHour}</if>
-       <if test="status != null and status != ''"> and status = #{status}</if>
-
+      <if test="credit != null and credit != ''"> and credit = #{credit}</if>
+      <if test="totalhour != null and totalhour != ''"> and totalHour = #{totalhour}</if>
+      <if test="status != null and status != ''"> and status = #{status}</if>
     </where>
   </select>
+
+  <insert id="insertCourse" parameterType="CourseInfo">
+    insert into course_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">id,</if>
+      <if test="courseno != null">courseNo,</if>
+      <if test="coursename != null">courseName,</if>
+      <if test="courseattr != null">courseAttr,</if>
+      <if test="credit != null">credit,</if>
+      <if test="totalhour != null">totalHour,</if>
+      <if test="status != null">status,</if>
+      <if test="description != null">description,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">#{id},</if>
+      <if test="courseno != null">#{courseno},</if>
+      <if test="coursename != null">#{coursename},</if>
+      <if test="courseattr != null">#{courseattr},</if>
+      <if test="credit != null">#{credit},</if>
+      <if test="totalhour != null">#{totalhour},</if>
+      <if test="status != null">#{status},</if>
+      <if test="description != null">#{description},</if>
+    </trim>
+  </insert>
+
+  <update id="updateCourse" parameterType="CourseInfo">
+    update  course_info
+    <trim prefix="SET" suffixOverrides=",">
+      <if test="id != null">id = #{id},</if>
+      <if test="courseno != null">courseNo = #{courseno},</if>
+      <if test="coursename != null">courseName = #{coursename},</if>
+      <if test="courseattr != null">courseAttr = #{courseattr},</if>
+      <if test="credit != null">credit = #{credit},</if>
+      <if test="totalhour != null">totalHour = #{totalhour},</if>
+      <if test="status != null">status = #{status},</if>
+      <if test="description != null">description = #{description},</if>
+    </trim>
+    where id = #{id}
+  </update>
+
+  <select id="checkno" resultType="java.lang.Integer">
+    select count(1) from course_info where courseno = #{courseno}
+    <if test="id!=null">
+      and id!=#{id}
+    </if>
+  </select>
+
+  <select id="selectCourseById" parameterType="Long" resultMap="CourseInfoResult">
+    <include refid="selectCourseInfoVo"/>
+    where id = #{id}
+  </select>
+
+  <delete id="delCourse" parameterType="String">
+    delete from course_info where id in
+    <foreach item="id" collection="array" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
+
+  <insert id="insertCourseByBatch" parameterType="java.util.List">
+    insert into course_info (id,courseNo,courseName, courseAttr, credit, totalHour, status, description)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.id,jdbcType=BIGINT},#{item.courseno,jdbcType=VARCHAR},#{item.coursename,jdbcType=VARCHAR},#{item.courseattr,jdbcType=VARCHAR},#{item.credit,jdbcType=INTEGER},#{item.totalhour,jdbcType=INTEGER},#{item.status,jdbcType=INTEGER},#{item.description,jdbcType=VARCHAR})
+    </foreach>
+
+  </insert>
+
 </mapper>

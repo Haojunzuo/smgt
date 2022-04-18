@@ -1,6 +1,6 @@
 package com.wbz.system.domain;
 
-public class CollegeInfo {
+public class CollegeInfo extends BaseEntity {
     private Long id;
 
     private String collegeno;

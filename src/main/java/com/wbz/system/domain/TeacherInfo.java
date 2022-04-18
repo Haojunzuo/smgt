@@ -1,6 +1,6 @@
 package com.wbz.system.domain;
 
-public class TeacherInfo {
+public class TeacherInfo extends BaseEntity{
     private Integer id;
 
     private String teacherno;

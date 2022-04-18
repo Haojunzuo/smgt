@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wbz.system.mapper.CollegeInfoMapper">
+<mapper namespace="com.wbz.system.mapper.CollegeMapper">
   <resultMap id="BaseResultMap" type="com.wbz.system.domain.CollegeInfo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="collegeNo" jdbcType="VARCHAR" property="collegeno" />
@@ -30,5 +30,23 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select id, collegeNo, collegeName
     from college_info
+  </select>
+
+
+  <resultMap id="CollegeInfoResult" type="CollegeInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="collegeNo" jdbcType="VARCHAR" property="collegeno" />
+    <result column="collegeName" jdbcType="VARCHAR" property="collegename" />
+  </resultMap>
+  <sql id="selectClassTaskInfoVo">
+    select id, collegeNo, collegeName from college_info
+  </sql>
+  <select id="selectCollegeList" parameterType="CollegeInfo" resultMap="CollegeInfoResult">
+    <include refid="selectClassTaskInfoVo"/>
+    <where>
+      <if test="id != null  and id != ''"> and id = #{id}</if>
+      <if test="collegeno != null  and collegeno != ''"> and collegeNo like concat('%',#{collegeno},'%') </if>
+      <if test="collegename != null  and collegename != ''"> and collegeName like concat('%',#{collegename},'%')</if>
+    </where>
   </select>
 </mapper>

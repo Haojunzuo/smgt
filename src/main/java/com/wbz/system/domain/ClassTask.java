@@ -1,28 +1,44 @@
 package com.wbz.system.domain;
 
-public class ClassTask {
+import com.alibaba.excel.annotation.ExcelProperty;
+
+public class ClassTask extends BaseEntity{
+
+
+    @ExcelProperty("id")
     private Long id;
 
+    @ExcelProperty("学期")
     private String semester;
 
+    @ExcelProperty("学院编号")
     private String collegeno;
 
+    @ExcelProperty("班级编号")
     private String classno;
 
+    @ExcelProperty("课程编号")
     private String courseno;
 
+    @ExcelProperty("教师编号")
     private String teacherno;
 
+    @ExcelProperty("课程属性")
     private String courseattr;
 
+    @ExcelProperty("学生人数")
     private Integer studentnumber;
 
+    @ExcelProperty("每周课时")
     private Integer weekssum;
 
+    @ExcelProperty("总周数")
     private Integer weeksnumber;
 
+    @ExcelProperty("固定上课时间")
     private String isfix;
 
+    @ExcelProperty("上课时间")
     private String classtime;
 
     public Long getId() {
@@ -119,5 +135,23 @@ public class ClassTask {
 
     public void setClasstime(String classtime) {
         this.classtime = classtime;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassTask{" +
+                "id=" + id +
+                ", semester='" + semester + '\'' +
+                ", collegeno='" + collegeno + '\'' +
+                ", classno='" + classno + '\'' +
+                ", courseno='" + courseno + '\'' +
+                ", teacherno='" + teacherno + '\'' +
+                ", courseattr='" + courseattr + '\'' +
+                ", studentnumber=" + studentnumber +
+                ", weekssum=" + weekssum +
+                ", weeksnumber=" + weeksnumber +
+                ", isfix='" + isfix + '\'' +
+                ", classtime='" + classtime + '\'' +
+                '}';
     }
 }

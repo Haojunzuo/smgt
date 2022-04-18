@@ -1,11 +1,16 @@
 package com.wbz.system.domain;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+
 import java.io.Serializable;
 
 public class BaseEntity implements Serializable {
 
+    @ExcelIgnore
     private Integer pageNum;
+    @ExcelIgnore
     private Integer pageSize;
+    @ExcelIgnore
     private String orderBy;
 
     public BaseEntity() {

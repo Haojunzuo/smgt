@@ -18,4 +18,19 @@
       where teacherName like concat ("%",#{condition,jdbcType=VARCHAR},"%")
     </if>
   </select>
+
+    <sql id="selectTeacherVo">
+        select id, teacherNo, teacherName, collegeNo, age, title from teacher_info
+    </sql>
+    <select id="selectTeacherList" resultMap="BaseResultMap" parameterType="TeacherInfo">
+        <include refid="selectTeacherVo"/>
+        <where>
+            <if test="id != null  and id != ''"> and id = #{id}</if>
+            <if test="teacherno != null  and teacherno != ''"> and teacherNo like concat('%',#{teacherno},'%') </if>
+            <if test="teachername != null  and teachername != ''"> and teacherName like concat('%',#{teachername},'%')</if>
+            <if test="collegeno != null  and collegeno != ''"> and collegeNo like concat('%',#{collegeno},'%')</if>
+            <if test="title != null  and title != ''"> and title like concat('%',#{title},'%')</if>
+            <if test="age != null and age != ''"> and age=#{age})</if>
+        </where>
+    </select>
 </mapper>

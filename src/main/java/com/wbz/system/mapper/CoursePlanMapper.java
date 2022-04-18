@@ -15,4 +15,5 @@ public interface CoursePlanMapper {
     int updateCoursePlan(ClassTask classTask);
     int clearCoursePlan();
 
+    List<CoursePlan> selectCoursePlanList(CoursePlan coursePlan);
 }

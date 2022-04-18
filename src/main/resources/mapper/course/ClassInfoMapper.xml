@@ -6,10 +6,25 @@
     <result column="classNo" jdbcType="VARCHAR" property="classno" />
     <result column="className" jdbcType="VARCHAR" property="classname" />
     <result column="studentNumber" jdbcType="INTEGER" property="studentnumber"/>
+    <result column="collegeNo" jdbcType="VARCHAR" property="collegeno"/>
   </resultMap>
 
   <select id="selectStudentNumber" resultType="java.lang.Integer" parameterType="java.lang.String">
     select studentNumber  from class_info where classNo = #{classNo,jdbcType=VARCHAR}
+  </select>
+
+  <sql id="selectClassVo">
+    select id, classNo, className, studentNumber, collegeNo from class_info
+  </sql>
+  <select id="selectClassList" parameterType="ClassInfo" resultMap="BaseResultMap">
+    <include refid="selectClassVo"/>
+    <where>
+      <if test="id != null  and id != ''"> and id = #{id}</if>
+      <if test="classno != null  and classno != ''"> and classNo like concat('%',#{classno},'%') </if>
+      <if test="collegeno != null  and collegeno != ''"> and collegeNo like concat('%',#{collegeno},'%')</if>
+      <if test="classname != null  and classname != ''"> and className like concat('%',#{classname},'%')</if>
+      <if test="studentnumber != null and studentnumber != ''"> and studentNumber=#{studentnumber})</if>
+    </where>
   </select>
 
 </mapper>

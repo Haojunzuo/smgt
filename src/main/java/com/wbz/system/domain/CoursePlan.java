@@ -1,6 +1,6 @@
 package com.wbz.system.domain;
 
-public class CoursePlan {
+public class CoursePlan extends BaseEntity {
     private Long id;
 
     private String collegeno;
@@ -89,5 +89,20 @@ public class CoursePlan {
 
     public void setSemester(String semester) {
         this.semester = semester;
+    }
+
+    @Override
+    public String toString() {
+        return "CoursePlan{" +
+                "id=" + id +
+                ", collegeno='" + collegeno + '\'' +
+                ", classno='" + classno + '\'' +
+                ", courseno='" + courseno + '\'' +
+                ", teacherno='" + teacherno + '\'' +
+                ", classroomno='" + classroomno + '\'' +
+                ", classtime='" + classtime + '\'' +
+                ", weekssum=" + weekssum +
+                ", semester='" + semester + '\'' +
+                '}';
     }
 }

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.NoticeMapper">
+
+    <resultMap id="NoticeResult" type="Notice">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="noticeno" jdbcType="VARCHAR" column="noticeNo"/>
+        <result property="title" jdbcType="VARCHAR" column="title"/>
+        <result property="content" jdbcType="LONGVARCHAR" column="content"/>
+        <result property="publisher" jdbcType="VARCHAR" column="publisher"/>
+        <result property="noticetime" jdbcType="TIMESTAMP" column="noticeTime"/>
+        <result property="noticetype" jdbcType="VARCHAR" column="noticeType"/>
+        <result property="file" jdbcType="VARCHAR" column="file"/>
+        <result property="urgency" jdbcType="VARCHAR" column="urgency"/>
+        <result property="status" jdbcType="VARCHAR" column="status"/>
+        <result property="institution" jdbcType="VARCHAR" column="institution"/>
+    </resultMap>
+
+    <sql id="selectNoticeVo">
+        select id,
+               noticeNo,
+               title,
+               content,
+               publisher,
+               noticeTime,
+               noticeType,
+               file,
+               urgency,
+               status,
+               institution
+        from notice_info
+    </sql>
+
+    <select id="selectNoticeList" parameterType="Notice" resultMap="NoticeResult">
+        <include refid="selectNoticeVo"/>
+        <where>
+            <if test="id != null  and id != ''">and id = #{id}</if>
+            <if test="noticeno != null  and noticeno != ''">and noticeNo like concat('%',#{noticeno},'%')</if>
+            <if test="title != null  and title != ''">and title like concat('%',#{title},'%')</if>
+            <if test="content != null  and content != ''">and content like concat('%',#{content},'%')</if>
+            <if test="publisher != null and publisher != ''">and publisher like concat('%',#{publisher},'%')</if>
+            <if test="noticetime != null and noticetime != ''">and noticeTime concat('%',#{noticetime},'%')</if>
+            <if test="noticetype != null and noticetype != ''">and noticeType concat('%',#{noticetype},'%')</if>
+            <if test="file != null and file != ''">and file concat('%',#{file},'%')</if>
+            <if test="urgency != null and urgency != ''">and urgency concat('%',#{urgency},'%')</if>
+            <if test="status != null and status != ''">and status concat('%',#{status},'%')</if>
+            <if test="institution != null and institution != ''">and institution concat('%',#{institution},'%')</if>
+        </where>
+    </select>
+
+    <insert id="insertNotice" parameterType="Notice">
+        insert into notice_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="noticeno != null">noticeNo,</if>
+            <if test="title != null">title,</if>
+            <if test="content != null">content,</if>
+            <if test="publisher != null">publisher,</if>
+            <if test="noticetime != null">noticeTime,</if>
+            <if test="noticetype != null">noticeType,</if>
+            <if test="file != null">file,</if>
+            <if test="urgency != null">urgency,</if>
+            <if test="status != null">status,</if>
+            <if test="institution != null">institution,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="noticeno != null">#{noticeno},</if>
+            <if test="title != null">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="publisher != null">#{publisher},</if>
+            <if test="noticetime != null">#{noticetime},</if>
+            <if test="noticetype != null">#{noticetype},</if>
+            <if test="file != null">#{file},</if>
+            <if test="urgency != null">#{urgency},</if>
+            <if test="status != null">#{status},</if>
+            <if test="institution != null">#{institution},</if>
+        </trim>
+    </insert>
+
+    <update id="updateNotice" parameterType="Notice">
+        update notice_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="noticeno != null">noticeNo = #{noticeno},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="publisher != null">publisher = #{publisher},</if>
+            <if test="noticetime != null">noticeTime = #{noticetime},</if>
+            <if test="noticetype != null">noticeType = #{noticetype},</if>
+            <if test="file != null">file = #{file},</if>
+            <if test="urgency != null">urgency = #{urgency},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="institution != null">institution = #{institution},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <select id="getNotice" parameterType="Long" resultMap="NoticeResult">
+        <include refid="selectNoticeVo"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delNotice" parameterType="String">
+        delete from notice_info where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
