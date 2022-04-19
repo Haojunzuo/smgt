@@ -18,7 +18,7 @@ public class Student extends BaseEntity{
     private Integer maritalStatus;
     private Integer healthStatus;
     private Integer religious;
-    private Integer country;
+    private String country;
     private String address;
     private String residence;
     private String identity;
@@ -47,6 +47,10 @@ public class Student extends BaseEntity{
     private String sex;
     private String detailAddress;
     private String detailResidence;
+    private String qq;
+    private String wechat;
+    private String contact;
+    private String contactPhone;
 
 
     public Long getId() {
@@ -137,11 +141,11 @@ public class Student extends BaseEntity{
         this.religious = religious;
     }
 
-    public Integer getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(Integer country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 
@@ -353,6 +357,38 @@ public class Student extends BaseEntity{
         this.detailResidence = detailResidence;
     }
 
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getWechat() {
+        return wechat;
+    }
+
+    public void setWechat(String wechat) {
+        this.wechat = wechat;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -367,7 +403,7 @@ public class Student extends BaseEntity{
                 ", maritalStatus=" + maritalStatus +
                 ", healthStatus=" + healthStatus +
                 ", religious=" + religious +
-                ", country=" + country +
+                ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
                 ", residence='" + residence + '\'' +
                 ", identity='" + identity + '\'' +
@@ -393,6 +429,10 @@ public class Student extends BaseEntity{
                 ", sex='" + sex + '\'' +
                 ", detailAddress='" + detailAddress + '\'' +
                 ", detailResidence='" + detailResidence + '\'' +
+                ", qq='" + qq + '\'' +
+                ", wechat='" + wechat + '\'' +
+                ", contact='" + contact + '\'' +
+                ", contactPhone='" + contactPhone + '\'' +
                 '}';
     }
 }
