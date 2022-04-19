@@ -168,26 +168,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="collegeNo != null">#{collegeNo},</if>
             <if test="classNo != null">#{classNo},</if>
 
-            <if test="orgSchool != null">#{org_school},</if>
-            <if test="planType != null">#{plan_type},</if>
-            <if test="stuType != null">#{stu_type},</if>
-            <if test="inTime != null">#{in_time},</if>
+            <if test="orgSchool != null">#{orgSchool},</if>
+            <if test="planType != null">#{planType},</if>
+            <if test="stuType != null">#{stuType},</if>
+            <if test="inTime != null">#{inTime},</if>
             <if test="major != null">#{major},</if>
             <if test="length != null">#{length},</if>
-            <if test="expectedGradu != null">#{expected_gradu},</if>
-            <if test="schoolStatus != null">#{school_status},</if>
+            <if test="expectedGradu != null">#{expectedGradu},</if>
+            <if test="schoolStatus != null">#{schoolStatus},</if>
             <if test="status != null">#{status},</if>
-            <if test="userName != null">#{user_name},</if>
-            <if test="nickName != null">#{nick_name},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="nickName != null">#{nickName},</if>
             <if test="email != null">#{email},</if>
-            <if test="phoneNumber != null">#{phone_number},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
             <if test="sex != null">#{sex},</if>
-            <if test="detailAddress != null">#{detail_address},</if>
-            <if test="detailResidence != null">#{detail_residence},</if>
+            <if test="detailAddress != null">#{detailAddress},</if>
+            <if test="detailResidence != null">#{detailResidence},</if>
             <if test="qq != null">#{qq},</if>
             <if test="wechat != null">#{wechat},</if>
             <if test="contact != null">#{contact},</if>
-            <if test="contactPhone != null">#{contact_phone},</if>
+            <if test="contactPhone != null">#{contactPhone},</if>
          </trim>
     </insert>
 
@@ -212,26 +212,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="collegeNo != null">collegeNo = #{collegeNo},</if>
             <if test="classNo != null">classNo = #{classNo},</if>
 
-            <if test="orgSchool != null">org_school = #{org_school},</if>
-            <if test="planType != null">plan_type = #{plan_type},</if>
-            <if test="stuType != null">stu_type = #{stu_type},</if>
-            <if test="inTime != null">in_time = #{in_time},</if>
+            <if test="orgSchool != null">org_school = #{orgSchool},</if>
+            <if test="planType != null">plan_type = #{planType},</if>
+            <if test="stuType != null">stu_type = #{stuType},</if>
+            <if test="inTime != null">in_time = #{inTime},</if>
             <if test="major != null">major = #{major},</if>
             <if test="length != null">length = #{length},</if>
-            <if test="expectedGradu != null">expected_gradu = #{expected_gradu},</if>
-            <if test="schoolStatus != null">school_status = #{school_status},</if>
+            <if test="expectedGradu != null">expected_gradu = #{expectedGradu},</if>
+            <if test="schoolStatus != null">school_status = #{schoolStatus},</if>
             <if test="status != null">status = #{status},</if>
-            <if test="userName != null">user_name = #{user_name},</if>
-            <if test="nickName != null">nick_name = #{nick_name},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="nickName != null">nick_name = #{nickName},</if>
             <if test="email != null">email = #{email},</if>
-            <if test="phoneNumber != null">phone_number = #{phone_number},</if>
+            <if test="phoneNumber != null">phone_number = #{phoneNumber},</if>
             <if test="sex != null">sex = #{sex},</if>
-            <if test="detailAddress != null">detail_address = #{detail_address},</if>
-            <if test="detailResidence != null">detail_residence = #{detail_residence},</if>
+            <if test="detailAddress != null">detail_address = #{detailAddress},</if>
+            <if test="detailResidence != null">detail_residence = #{detailResidence},</if>
             <if test="qq != null">qq = #{qq},</if>
             <if test="wechat != null">wechat = #{wechat},</if>
             <if test="contact != null">contact = #{contact},</if>
-            <if test="contactPhone != null">contact_phone = #{contact_phone},</if>
+            <if test="contactPhone != null">contact_phone = #{contactPhone},</if>
         </trim>
         where id = #{id}
     </update>
