@@ -25,6 +25,8 @@ public interface StudentService {
 
     public int deleteStudentById(Long id);
 
+    void insertStudentByBatch(List<Student> studentList);
+
 //    List<Student> selectallData();
 
 //    List<Student> judgeStaffCatCode(String staffCatCode);

@@ -1,56 +1,103 @@
 package com.wbz.system.domain;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.util.Date;
 
 public class Student extends BaseEntity{
 
+    @ExcelProperty("id")
     private Long id;
+    @ExcelProperty("学号")
     private String  studentNo;
+    @ExcelProperty("备用字段")
     private Long userId;
+    @ExcelProperty("辅导员id")
     private Long instructorId;
+
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @ExcelProperty("出生年月（yyyy-MM-dd）")
     private Date birth;
+    @ExcelProperty("民族")
     private Integer nation;
+    @ExcelProperty("政治面貌")
     private Integer politicalStatus;
+    @ExcelProperty("血型")
     private Integer bloodType;
+    @ExcelProperty("婚姻状态")
     private Integer maritalStatus;
+    @ExcelProperty("健康状态")
     private Integer healthStatus;
+    @ExcelProperty("宗教信仰")
     private Integer religious;
+    @ExcelProperty("国家")
     private String country;
+    @ExcelProperty("家庭地址")
     private String address;
+    @ExcelProperty("籍贯")
     private String residence;
+    @ExcelProperty("身份证号")
     private String identity;
+    @ExcelProperty("年级")
     private String grade;
+    @ExcelProperty("学院id")
     private String collegeNo;
+    @ExcelProperty("班级id")
     private String classNo;
 
+    @ExcelProperty("原始院校")
     private String orgSchool;
+    @ExcelProperty("计划类型")
     private String planType;
+    @ExcelProperty("学生类型")
     private String stuType;
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @ExcelProperty("入学时间（yyyy-MM-dd）")
     private Date inTime;
+    @ExcelProperty("专业")
     private String major;
+    @ExcelProperty("学制")
     private String length;
+    @ExcelProperty("预计毕业时间（yyyy-MM-dd）")
     private String expectedGradu;
+    @ExcelProperty("在校状态")
     private String schoolStatus;
+    @ExcelProperty("培养状态")
     private String status;
 
+    @ExcelIgnore
     private User instructor;
+    @ExcelIgnore
     private ClassInfo classInfo;
+    @ExcelIgnore
     private CollegeInfo collegeInfo;
+    @ExcelProperty("学号2")
     private String userName;
+    @ExcelProperty("姓名")
     private String nickName;
+    @ExcelProperty("邮箱")
     private String email;
+    @ExcelProperty("电话")
     private String phoneNumber;
+    @ExcelProperty("性别")
     private String sex;
+    @ExcelProperty("详细住址")
     private String detailAddress;
+    @ExcelProperty("详细籍贯")
     private String detailResidence;
+    @ExcelProperty("qq号码")
     private String qq;
+    @ExcelProperty("微信号码")
     private String wechat;
+    @ExcelProperty("紧急联系人")
     private String contact;
+    @ExcelProperty("紧急联系人电话")
     private String contactPhone;
+    @ExcelIgnore
+    private String avatar;
 
 
     public Long getId() {
@@ -389,6 +436,14 @@ public class Student extends BaseEntity{
         this.contactPhone = contactPhone;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -433,6 +488,7 @@ public class Student extends BaseEntity{
                 ", wechat='" + wechat + '\'' +
                 ", contact='" + contact + '\'' +
                 ", contactPhone='" + contactPhone + '\'' +
+                ", avatar='" + avatar + '\'' +
                 '}';
     }
 }

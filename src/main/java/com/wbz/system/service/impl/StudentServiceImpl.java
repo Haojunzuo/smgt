@@ -52,4 +52,9 @@ public class StudentServiceImpl implements StudentService
         return StudentMapper.deleteStudentById(id);
     }
 
+    @Override
+    public void insertStudentByBatch(List<Student> studentList) {
+        StudentMapper.insertStudentByBatch(studentList);
+    }
+
 }
