@@ -42,7 +42,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
         <association property="instructor"    column="user_id" javaType="User" resultMap="userResult" />
-        <association property="user"    column="user_id" javaType="User" resultMap="userResult" />
         <association property="classInfo"    column="classNo" javaType="ClassInfo" resultMap="classResult" />
         <association property="collegeInfo"    column="collegeNo" javaType="CollegeInfo" resultMap="collegeResult" />
 
