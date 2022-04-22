@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.StudentElCourseMapper">
+
+    <resultMap type="StudentElCourse" id="StudentElCourseResult">
+        <result property="id"    column="id"    />
+        <result property="StudentNo"    column="studentNo"    />
+        <result property="elCourse"    column="elCourse"    />
+        <association property="elCourses" column="elCourse" javaType="ElCourse">
+            <id     property="id"       column="elCourse_id"      />
+            <result property="courseNo"     column="courseNo"    />
+            <result property="teacherNo"     column="teacherNo"    />
+            <result property="classroomNo"     column="classroomNo"     />
+            <result property="courseTime"     column="courseTime"     />
+            <result property="limitation"        column="limitation"        />
+            <result property="studentNumber"  column="studentNumber"  />
+            <result property="collegeNo"     column="collegeNo"     />
+            <result property="weeks"        column="weeks"        />
+            <result property="semester"  column="semester"  />
+        </association>
+    </resultMap>
+
+<!--    <sql id="selectStudentElCourseVo">-->
+<!--        select * from student_elcourse sec ,elcourse ec where-->
+<!--             left join  on sec.elCourse = ec.id-->
+<!--    </sql>-->
+
+<!--    <select id="selectStudentElCourseList" parameterType="StudentElCourse" resultMap="StudentElCourseResult">-->
+<!--        <include refid="selectStudentElCourseVo"/>-->
+<!--        <where>-->
+<!--            <if test="status != null  and status != ''"> and status = #{status}</if>-->
+<!--            <if test="type != null  and type != ''"> and type = #{type}</if>-->
+<!--            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+    <select id="selectStudentElCourseByStudentNo" parameterType="String" resultMap="StudentElCourseResult">
+        select sec.*,ec.id as elCourse_id, ec.courseNo, ec.teacherNo, ec.classroomNo, ec.courseTime, ec.limitation, ec.studentNumber,ec.collegeNo, ec.weeks, ec.semester  from student_elcourse sec ,elcourse ec
+        where sec.studentNo = #{StudentNo} and sec.elCourse = ec.id
+    </select>
+
+
+    <insert id="insertStudentElCourse" parameterType="StudentElCourse">
+        insert into student_elcourse
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="StudentNo != null">studentNo,</if>
+            <if test="elCourse != null">elCourse,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="StudentNo != null">#{StudentNo},</if>
+            <if test="elCourse != null">#{elCourse},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStudentElCourse" parameterType="StudentElCourse">
+        update  student_elcourse
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="StudentNo != null">studentNo = #{StudentNo},</if>
+            <if test="elCourse != null">elCourse = #{elCourse},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <delete id="deleteStudentElCourseById" parameterType="StudentElCourse">
+        delete from student_elcourse where studentNo = #{StudentNo} and elCourse = #{elCourse}
+    </delete>
+
+</mapper>
