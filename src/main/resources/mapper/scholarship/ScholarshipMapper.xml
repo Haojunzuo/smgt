@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ScholarshipMapper">
+
+    <select id="selectStuScholarshipList" parameterType="StuScholarship" resultType="Scholarship">
+        select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id as instructorId, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName
+        from student_scholarship stuscho, scholarship scho, student_info stu, user_info us where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo
+        <if test="semester != null  and semester != ''">and stuscho.semester=#{semester}</if>
+        <if test="studentNo != null  and studentNo != ''">and stuscho.studentNo=#{studentNo}</if>
+        <if test="type != null  and type != ''">and scho.type=#{type}</if>
+        <if test="status != null  and status != ''">and stuscho.status=#{status}</if>
+        <if test="scholarshipNo != null  and scholarshipNo != ''">and stuscho.scholarshipNo=#{scholarshipNo}</if>
+    </select>
+
+    <select id="getScholarship" parameterType="Long" resultType="Scholarship">
+        select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName
+        from student_scholarship stuscho, scholarship scho, student_info stu, user_info us where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo
+        <if test="id != null  and id != ''">and stuscho.id=#{semester}</if>
+    </select>
+
+
+    <insert id="insertScholarship" parameterType="StuScholarship">
+        insert into student_scholarship
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="semester != null">semester,</if>
+            <if test="studentNo != null">studentNo,</if>
+            <if test="instructorId != null">instructor_id,</if>
+            <if test="status != null">status,</if>
+            <if test="scholarshipNo != null">scholarshipNo,</if>
+            <if test="reason != null">reason,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="semester != null">#{semester},</if>
+            <if test="studentNo != null">#{studentNo},</if>
+            <if test="instructorId != null">#{instructorId},</if>
+            <if test="status != null">#{status},</if>
+            <if test="scholarshipNo != null">#{scholarshipNo},</if>
+            <if test="reason != null">#{reason},</if>
+        </trim>
+    </insert>
+
+    <update id="updateScholarship" parameterType="StuScholarship">
+        update student_scholarship
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="semester != null">semester = #{semester},</if>
+            <if test="studentNo != null">studentNo = #{studentNo},</if>
+            <if test="instructorId != null">instructor_id = #{instructorId},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="scholarshipNo != null">scholarshipNo = #{scholarshipNo},</if>
+            <if test="reason != null">reason = #{reason},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <delete id="delScholarship" parameterType="Long">
+        delete from student_scholarship where id=#{id}
+    </delete>
+
+
+</mapper>
