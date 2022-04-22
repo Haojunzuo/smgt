@@ -43,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="wechat"    column="wechat"    />
         <result property="contact"    column="contact"    />
         <result property="contactPhone"    column="contact_phone"    />
+        <result property="avatar"    column="avatar"    />
 
 
         <association property="instructor"    column="user_id" javaType="User" resultMap="userResult" />
@@ -238,15 +239,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
     <delete id="deleteStudentById" parameterType="Long">
-        delete from student_Student where id = #{id}
+        delete from student_info where id = #{id}
     </delete>
 
     <delete id="deleteStudentByIds" parameterType="String">
-        delete from student_Student where id in
+        delete from student_info where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
     </delete>
+
+    <insert id="insertStudentByBatch" parameterType="java.util.List">
+        insert into student_info(id, studentNo, user_id, birth, nation, political_status, blood_type, marital_status, health_status, religious, country,
+                                 address, residence, identity, instructor_id, grade, classNo, collegeNo, org_school, plan_type, stu_type, in_time, major,
+                                 length, expected_gradu, school_status, status, user_name, nick_name, email, phone_number, sex, detail_address, detail_residence,
+                                qq, wechat, contact, contact_phone)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=BIGINT},#{item.studentNo,jdbcType=VARCHAR},#{item.userId,jdbcType=BIGINT},#{item.birth,jdbcType=TIMESTAMP},
+            #{item.nation,jdbcType=INTEGER},#{item.politicalStatus,jdbcType=INTEGER},#{item.bloodType,jdbcType=INTEGER},#{item.maritalStatus,jdbcType=INTEGER},
+            #{item.healthStatus,jdbcType=INTEGER},#{item.religious,jdbcType=INTEGER},#{item.country,jdbcType=VARCHAR},#{item.address,jdbcType=VARCHAR},
+            #{item.residence,jdbcType=VARCHAR},#{item.identity,jdbcType=VARCHAR},#{item.instructorId,jdbcType=BIGINT},#{item.grade,jdbcType=VARCHAR},
+            #{item.classNo,jdbcType=VARCHAR},#{item.collegeNo,jdbcType=VARCHAR},#{item.orgSchool,jdbcType=VARCHAR},#{item.planType,jdbcType=VARCHAR},
+            #{item.stuType,jdbcType=VARCHAR},#{item.inTime,jdbcType=TIMESTAMP},#{item.major,jdbcType=VARCHAR},#{item.length,jdbcType=DOUBLE},
+            #{item.expectedGradu,jdbcType=TIMESTAMP},#{item.schoolStatus,jdbcType=VARCHAR},#{item.status,jdbcType=VARCHAR},#{item.userName,jdbcType=VARCHAR},
+            #{item.nickName,jdbcType=VARCHAR},#{item.email,jdbcType=VARCHAR},#{item.phoneNumber,jdbcType=VARCHAR},#{item.sex,jdbcType=VARCHAR},
+            #{item.detailAddress,jdbcType=VARCHAR},#{item.detailResidence,jdbcType=VARCHAR},#{item.qq,jdbcType=VARCHAR},#{item.wechat,jdbcType=VARCHAR},
+            #{item.contact,jdbcType=VARCHAR},#{item.contactPhone,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
 
 <!--    <select id="judgeStaffCatCode" parameterType="String" resultMap="StudentResult">-->
 <!--        select *from staff_category where staff_cat_code = #{staffCatCode}-->

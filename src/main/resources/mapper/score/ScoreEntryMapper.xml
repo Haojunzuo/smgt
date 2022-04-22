@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ScoreEntryMapper">
+
+    <resultMap id="ScoreEntryResult" type="ScoreEntry">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="semester" jdbcType="VARCHAR" column="semester"/>
+        <result property="start" jdbcType="VARCHAR" column="start"/>
+    </resultMap>
+
+
+    <sql id="selectScoreEntryVo">
+        select id,
+               semester,
+               start
+        from score_entry
+    </sql>
+
+    <update id="updateEntryStart" parameterType="String">
+        update score_entry set start='1' where semester = #{semester}
+    </update>
+
+
+    <select id="isStart" parameterType="String" resultType="String">
+        select start from score_entry where semester = #{semester}
+    </select>
+
+    <delete id="delScoreEntry" parameterType="String">
+        delete from score_entry where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectCourseBySemester" parameterType="String" resultType="Score">
+        select ct.semester, cou.courseNo, cou.courseName, ct.classNo, cou.courseAttr, stu.studentNo, stu.nick_name as studentName
+        from class_task ct, student_info stu, course_info cou where ct.classNo=stu.classNo and ct.courseNo=cou.courseNo
+    </select>
+
+    <insert id="insertScoreByBatch" parameterType="java.util.List">
+        insert into score (semester,courseNo, courseName, courseAttr, studentNo, studentName, score)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.semester,jdbcType=VARCHAR},#{item.courseNo,jdbcType=VARCHAR},#{item.courseName,jdbcType=VARCHAR},#{item.courseAttr,jdbcType=VARCHAR},
+            #{item.studentNo,jdbcType=VARCHAR},#{item.studentName,jdbcType=VARCHAR},#{item.score,jdbcType=FLOAT})
+        </foreach>
+    </insert>
+
+    <delete id="delScoreBySemester" parameterType="String">
+        delete from score where semester=#{semester}
+    </delete>
+
+</mapper>
