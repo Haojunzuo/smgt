@@ -37,4 +37,10 @@ public class ScholarshipServiceImpl implements ScholarshipService {
     public int insertScholarship(StuScholarship stuScholarship) {
         return scholarshipMapper.insertScholarship(stuScholarship);
     }
+
+    @Override
+    public String checkScholarshipExit(StuScholarship stuScholarship) {
+        int size = scholarshipMapper.checkScholarshipExit(stuScholarship);
+        return size>0?"false":"true";
+    }
 }

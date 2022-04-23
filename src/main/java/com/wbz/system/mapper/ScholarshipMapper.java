@@ -17,4 +17,6 @@ public interface ScholarshipMapper {
     Scholarship getScholarship(Long id);
 
     int insertScholarship(StuScholarship stuScholarship);
+
+    int checkScholarshipExit(StuScholarship stuScholarship);
 }

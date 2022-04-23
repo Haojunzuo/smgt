@@ -16,4 +16,6 @@ public interface ScholarshipService {
     Scholarship getScholarship(Long id);
 
     int insertScholarship(StuScholarship stuScholarship);
+
+    String checkScholarshipExit(StuScholarship stuScholarship);
 }

@@ -51,4 +51,9 @@ public class ScholarshipController {
         return AjaxResult.success(scholarshipService.insertScholarship(stuScholarship));
     }
 
+    @PutMapping("/checkScholarshipExit")
+    public String checkScholarshipExit(StuScholarship stuScholarship){
+        return scholarshipService.checkScholarshipExit(stuScholarship);
+    }
+
 }
