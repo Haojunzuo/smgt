@@ -19,6 +19,16 @@ public class Score extends BaseEntity{
     private String studentName;
     @ExcelProperty("分数")
     private double score;
+    @ExcelProperty("学分")
+    private Integer credit;
+
+    public Integer getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Integer credit) {
+        this.credit = credit;
+    }
 
     public Long getId() {
         return id;
@@ -95,6 +105,7 @@ public class Score extends BaseEntity{
                 ", studentNo='" + studentNo + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", score=" + score +
+                ", credit=" + credit +
                 '}';
     }
 }

@@ -33,16 +33,16 @@
     </delete>
 
     <select id="selectCourseBySemester" parameterType="String" resultType="Score">
-        select ct.semester, cou.courseNo, cou.courseName, ct.classNo, cou.courseAttr, stu.studentNo, stu.nick_name as studentName
+        select ct.semester, cou.courseNo, cou.courseName, ct.classNo, cou.courseAttr, stu.studentNo, stu.nick_name as studentName, cou.credit
         from class_task ct, student_info stu, course_info cou where ct.classNo=stu.classNo and ct.courseNo=cou.courseNo
     </select>
 
     <insert id="insertScoreByBatch" parameterType="java.util.List">
-        insert into score (semester,courseNo, courseName, courseAttr, studentNo, studentName, score)
+        insert into score (semester,courseNo, courseName, courseAttr, studentNo, studentName, score, credit)
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.semester,jdbcType=VARCHAR},#{item.courseNo,jdbcType=VARCHAR},#{item.courseName,jdbcType=VARCHAR},#{item.courseAttr,jdbcType=VARCHAR},
-            #{item.studentNo,jdbcType=VARCHAR},#{item.studentName,jdbcType=VARCHAR},#{item.score,jdbcType=FLOAT})
+            #{item.studentNo,jdbcType=VARCHAR},#{item.studentName,jdbcType=VARCHAR},#{item.score,jdbcType=FLOAT} ,#{item.credit,jdbcType=INTEGER})
         </foreach>
     </insert>
 

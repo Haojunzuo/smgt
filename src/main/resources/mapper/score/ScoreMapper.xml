@@ -11,6 +11,7 @@
         <result property="studentNo" jdbcType="VARCHAR" column="studentNo"/>
         <result property="studentName" jdbcType="VARCHAR" column="studentName"/>
         <result property="score" jdbcType="FLOAT" column="score"/>
+        <result property="credit" jdbcType="INTEGER" column="credit"/>
     </resultMap>
 
 
@@ -22,7 +23,8 @@
                courseAttr,
                studentNo,
                studentName,
-               score
+               score,
+               credit
         from score
     </sql>
 
@@ -37,6 +39,7 @@
             <if test="studentNo != null  and studentNo != ''">and studentNo like concat('%',#{studentNo},'%')</if>
             <if test="studentName != null  and studentName != ''">and studentName like concat('%',#{studentName},'%')</if>
             <if test="score != null and score != ''">and score  = #{score}</if>
+            <if test="credit != null and credit != ''">and credit  = #{credit}</if>
         </where>
     </select>
 
@@ -51,6 +54,7 @@
             <if test="studentNo != null">studentNo,</if>
             <if test="studentName != null">studentName,</if>
             <if test="score != null">score,</if>
+            <if test="credit != null">credit,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
@@ -61,6 +65,7 @@
             <if test="studentNo != null">#{studentNo},</if>
             <if test="studentName != null">#{studentName},</if>
             <if test="score != null">#{score},</if>
+            <if test="credit != null">#{credit},</if>
         </trim>
     </insert>
 

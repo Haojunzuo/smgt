@@ -6,7 +6,7 @@
         select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id as instructorId, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName
         from student_scholarship stuscho, scholarship scho, student_info stu, user_info us where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo
         <if test="semester != null  and semester != ''">and stuscho.semester=#{semester}</if>
-        <if test="studentNo != null  and studentNo != ''">and stuscho.studentNo=#{studentNo}</if>
+        <if test="studentNo != null  and studentNo != ''">and stuscho.studentNo like concat('%',#{studentNo},'%')</if>
         <if test="type != null  and type != ''">and scho.type=#{type}</if>
         <if test="status != null  and status != ''">and stuscho.status=#{status}</if>
         <if test="scholarshipNo != null  and scholarshipNo != ''">and stuscho.scholarshipNo=#{scholarshipNo}</if>
