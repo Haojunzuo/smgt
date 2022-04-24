@@ -9,4 +9,5 @@ public interface ScoreService {
     int updateScore(Score score);
 
     int updateScoreByscs(Score score);
+
 }

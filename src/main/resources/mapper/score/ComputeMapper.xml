@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ComputeMapper">
+
+    <resultMap id="WeightResult" type="WeightScore">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="semester" jdbcType="VARCHAR" column="semester"/>
+        <result property="studentNo" jdbcType="VARCHAR" column="studentNo"/>
+        <result property="weightScore" jdbcType="FLOAT" column="weightScore"/>
+        <result property="reScore" jdbcType="FLOAT" column="reScore"/>
+        <result property="totalScore" jdbcType="FLOAT" column="totalScore"/>
+    </resultMap>
+
+
+    <sql id="selectWeightVo">
+        select id,
+               semester,
+               studentNo,
+               weightScore,
+               reScore,
+               totalScore
+        from weight_score
+    </sql>
+
+<!--    <select id="selectWeightList" parameterType="WeightScore" resultMap="WeightResult">-->
+<!--        <include refid="selectWeightVo"/>-->
+<!--        <where>-->
+<!--            <if test="id != null  and id != ''">and id = #{id}</if>-->
+<!--            <if test="semester != null  and semester != ''">and semester like concat('%',#{semester},'%')</if>-->
+<!--            <if test="studentNo != null  and studentNo != ''">and studentNo like concat('%',#{studentNo},'%')</if>-->
+<!--            <if test="weightScore != null and weightScore != ''">and weightScore  = #{weightScore}</if>-->
+<!--            <if test="reScore != null and reScore != ''">and reScore  = #{reScore}</if>-->
+<!--            <if test="totalScore != null and totalScore != ''">and totalScore  = #{totalScore}</if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+    <select id="selectWeightList" parameterType="String" resultMap="WeightResult">
+        select ws.id, ws.studentNo, ws.semester, ws.weightScore, ws.reScore, ws.totalScore, stu.nick_name as studentName from weight_score ws, student_info stu where ws.semester = #{semester} and ws.studentNo=stu.studentNo
+    </select>
+
+<!--    <insert id="insertWeight" parameterType="WeightScore">-->
+<!--        insert into weight_score-->
+<!--        <trim prefix="(" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">id,</if>-->
+<!--            <if test="semester != null">semester,</if>-->
+<!--            <if test="courseNo != null">courseNo,</if>-->
+<!--            <if test="courseName != null">courseName,</if>-->
+<!--            <if test="courseAttr != null">courseAttr,</if>-->
+<!--            <if test="studentNo != null">studentNo,</if>-->
+<!--            <if test="studentName != null">studentName,</if>-->
+<!--            <if test="score != null">score,</if>-->
+<!--            <if test="credit != null">credit,</if>-->
+<!--        </trim>-->
+<!--        <trim prefix="values (" suffix=")" suffixOverrides=",">-->
+<!--            <if test="id != null">#{id},</if>-->
+<!--            <if test="semester != null">#{semester},</if>-->
+<!--            <if test="courseNo != null">#{courseNo},</if>-->
+<!--            <if test="courseName != null">#{courseName},</if>-->
+<!--            <if test="courseAttr != null">#{courseAttr},</if>-->
+<!--            <if test="studentNo != null">#{studentNo},</if>-->
+<!--            <if test="studentName != null">#{studentName},</if>-->
+<!--            <if test="score != null">#{score},</if>-->
+<!--            <if test="credit != null">#{credit},</if>-->
+<!--        </trim>-->
+<!--    </insert>-->
+
+    <update id="updateWeight" parameterType="WeightScore">
+        update weight_score
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null">id = #{id},</if>
+            <if test="semester != null">semester = #{semester},</if>
+            <if test="studentNo != null">studentNo = #{studentNo},</if>
+            <if test="weightScore != null">weightScore = #{weightScore},</if>
+            <if test="reScore != null">reScore = #{reScore},</if>
+            <if test="totalScore != null">totalScore = #{totalScore},</if>
+        </trim>
+        where semester=#{semester} and studentNo=#{studentNo}
+    </update>
+
+
+    <insert id="insertWeightByBatch" parameterType="java.util.List">
+        insert into weight_score (id, semester, studentNo, weightScore, reScore, totalScore)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=BIGINT},#{item.semester,jdbcType=VARCHAR},#{item.studentNo,jdbcType=VARCHAR},#{item.weightScore,jdbcType=FLOAT}
+            ,#{item.reScore,jdbcType=FLOAT},#{item.totalScore,jdbcType=FLOAT})
+        </foreach>
+    </insert>
+
+    <select id="isExist" parameterType="String" resultType="int">
+        select count(*) from weight_score where semester = #{semester}
+    </select>
+
+</mapper>

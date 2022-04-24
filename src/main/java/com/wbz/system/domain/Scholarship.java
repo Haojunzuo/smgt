@@ -16,6 +16,15 @@ public class Scholarship extends BaseEntity{
     private String instructorName;
     private String status;
     private String file;
+    private Double totalScore;
+
+    public Double getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(Double totalScore) {
+        this.totalScore = totalScore;
+    }
 
     public Integer getId() {
         return id;
@@ -137,6 +146,7 @@ public class Scholarship extends BaseEntity{
                 ", instructorName='" + instructorName + '\'' +
                 ", status='" + status + '\'' +
                 ", file='" + file + '\'' +
+                ", totalScore=" + totalScore +
                 '}';
     }
 }

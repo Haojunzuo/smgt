@@ -3,8 +3,8 @@
 <mapper namespace="com.wbz.system.mapper.ScholarshipMapper">
 
     <select id="selectStuScholarshipList" parameterType="StuScholarship" resultType="Scholarship">
-        select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id as instructorId, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName
-        from student_scholarship stuscho, scholarship scho, student_info stu, user_info us where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo
+        select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id as instructorId, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName, ws.totalScore
+        from student_scholarship stuscho, scholarship scho, student_info stu, user_info us, weight_score ws where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo and stuscho.semester=ws.semester and stuscho.studentNo=ws.studentNo
         <if test="semester != null  and semester != ''">and stuscho.semester=#{semester}</if>
         <if test="studentNo != null  and studentNo != ''">and stuscho.studentNo like concat('%',#{studentNo},'%')</if>
         <if test="type != null  and type != ''">and scho.type=#{type}</if>
