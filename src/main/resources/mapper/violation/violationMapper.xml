@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ViolationMapper">
+
+    <resultMap type="Violation" id="ViolationResult">
+        <result property="id"    column="id"    />
+        <result property="studentId"    column="student_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="time"    column="time"    />
+        <result property="dealTime"    column="deal_time"    />
+        <result property="description"    column="description"    />
+        <result property="type"    column="type"    />
+        <result property="status"    column="status"    />
+        <result property="result"    column="result"    />
+        
+</resultMap>
+
+    <sql id="selectViolationVo">
+        select student_id, time, id, deal_time, description, status, user_id , type, result from violation
+    </sql>
+
+    <select id="selectViolationList" parameterType="Violation" resultMap="ViolationResult">
+        <include refid="selectViolationVo"/>
+        <where>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>
+            <if test="result != null  and result != ''"> and result = #{result}</if>
+            <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <select id="selectViolationById" parameterType="Long" resultMap="ViolationResult">
+        <include refid="selectViolationVo"/>
+        where id = #{id} order by id desc
+    </select>
+
+    <insert id="insertViolation" parameterType="Violation">
+        insert into violation
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">student_id,</if>
+            <if test="time != null">time,</if>
+            <if test="dealTime != null">deal_time,</if>
+            <if test="description != null">description,</if>
+            <if test="status != null">status,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="type != null">type,</if>
+            <if test="result != null">result,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">#{studentId},</if>
+            <if test="time != null">#{time},</if>
+            <if test="dealTime != null">#{dealTime},</if>
+            <if test="description != null">#{description},</if>
+            <if test="status != null">#{status},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="type != null">#{type},</if>
+            <if test="result != null">#{result},</if>
+         </trim>
+    </insert>
+
+    <update id="updateViolation" parameterType="Violation">
+        update  violation
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="studentId != null">student_id = #{studentId},</if>
+            <if test="time != null">time = #{time},</if>
+            <if test="dealTime != null">deal_time = #{dealTime},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="result != null">result = #{result},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <delete id="deleteViolationById" parameterType="Long">
+        delete from violation where id = #{id}
+    </delete>
+
+    <delete id="deleteViolationByIds" parameterType="String">
+        delete from violation where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

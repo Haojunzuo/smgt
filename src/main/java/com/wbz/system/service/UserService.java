@@ -46,7 +46,9 @@ public class UserService {
         }
         return map;
     }
-
+    public List<User> selectUsers(User user){
+      return userMapper.selectUser(user);
+    };
     public User getUserByUserId(Long userId) {return userMapper.selectUserByUserId(userId);}
 
     public String checkPhoneUnique(User user) {

@@ -71,6 +71,16 @@ public class UserController {
         map.put("user",user);
         return map;
     }
+    @GetMapping("getUser/{id}")
+    public AjaxResult getUser(@PathVariable(value = "id", required = false) Long id) {
+        User user = userService.getUserByUserId(id);
+        return AjaxResult.success(user);
+    }
+    @PostMapping("/listUser")
+    public AjaxResult getUser(@RequestBody User user) {
+       return AjaxResult.success(userService.selectUsers(user));
+    }
+
 
     @GetMapping("getRouters/{role}")
     public List<RouterVo> getRouters(@PathVariable(value = "role") Integer role) {

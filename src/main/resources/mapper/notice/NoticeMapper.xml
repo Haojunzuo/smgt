@@ -9,6 +9,7 @@
         <result property="content" jdbcType="LONGVARCHAR" column="content"/>
         <result property="publisher" jdbcType="VARCHAR" column="publisher"/>
         <result property="noticetime" jdbcType="TIMESTAMP" column="noticeTime"/>
+        <result property="endTime" jdbcType="TIMESTAMP" column="endTime"/>
         <result property="noticetype" jdbcType="VARCHAR" column="noticeType"/>
         <result property="file" jdbcType="VARCHAR" column="file"/>
         <result property="urgency" jdbcType="VARCHAR" column="urgency"/>
@@ -23,6 +24,7 @@
                content,
                publisher,
                noticeTime,
+               endTime,
                noticeType,
                file,
                urgency,
@@ -40,11 +42,12 @@
             <if test="content != null  and content != ''">and content like concat('%',#{content},'%')</if>
             <if test="publisher != null and publisher != ''">and publisher like concat('%',#{publisher},'%')</if>
             <if test="noticetime != null and noticetime != ''">and noticeTime concat('%',#{noticetime},'%')</if>
-            <if test="noticetype != null and noticetype != ''">and noticeType concat('%',#{noticetype},'%')</if>
+            <if test="noticetype != null and noticetype != ''">and noticeType = #{noticetype}</if>
             <if test="file != null and file != ''">and file concat('%',#{file},'%')</if>
             <if test="urgency != null and urgency != ''">and urgency concat('%',#{urgency},'%')</if>
             <if test="status != null and status != ''">and status concat('%',#{status},'%')</if>
             <if test="institution != null and institution != ''">and institution concat('%',#{institution},'%')</if>
+            <if test="endTime != null and endTime != ''">and endTime &gt;= now()</if>
         </where>
     </select>
 
@@ -57,6 +60,7 @@
             <if test="content != null">content,</if>
             <if test="publisher != null">publisher,</if>
             <if test="noticetime != null">noticeTime,</if>
+            <if test="endTime != null">endTime,</if>
             <if test="noticetype != null">noticeType,</if>
             <if test="file != null">file,</if>
             <if test="urgency != null">urgency,</if>
@@ -70,6 +74,7 @@
             <if test="content != null">#{content},</if>
             <if test="publisher != null">#{publisher},</if>
             <if test="noticetime != null">#{noticetime},</if>
+            <if test="endTime != null">#{endTime},</if>
             <if test="noticetype != null">#{noticetype},</if>
             <if test="file != null">#{file},</if>
             <if test="urgency != null">#{urgency},</if>
@@ -87,6 +92,7 @@
             <if test="content != null">content = #{content},</if>
             <if test="publisher != null">publisher = #{publisher},</if>
             <if test="noticetime != null">noticeTime = #{noticetime},</if>
+            <if test="endTime != null">endTime = #{endTime},</if>
             <if test="noticetype != null">noticeType = #{noticetype},</if>
             <if test="file != null">file = #{file},</if>
             <if test="urgency != null">urgency = #{urgency},</if>

@@ -22,6 +22,9 @@ public class Notice extends BaseEntity {
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
     private Date noticetime;
 
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:MM:SS")
+    private Date endTime;
+
     private String noticetype;
 
     private String file;
@@ -120,6 +123,14 @@ public class Notice extends BaseEntity {
         this.institution = institution;
     }
 
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
     @Override
     public String toString() {
         return "Notice{" +
@@ -129,6 +140,7 @@ public class Notice extends BaseEntity {
                 ", content='" + content + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", noticetime=" + noticetime +
+                ", endTime=" + endTime +
                 ", noticetype='" + noticetype + '\'' +
                 ", file='" + file + '\'' +
                 ", urgency='" + urgency + '\'' +

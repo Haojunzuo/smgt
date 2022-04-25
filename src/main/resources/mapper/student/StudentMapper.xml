@@ -96,11 +96,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectStudentList" parameterType="Student" resultMap="StudentResult">
         <include refid="selectStudentVo"/>
-<!--        <where>-->
-<!--            <if test="status != null  and status != ''"> and status = #{status}</if>-->
-<!--            <if test="type != null  and type != ''"> and type = #{type}</if>-->
-<!--            <if test="studentId != null  and studentId != ''"> and student_id = #{studentId}</if>-->
-<!--        </where>-->
+        <where>
+            <if test="instructorId != null  and instructorId != ''"> and instructor_id = #{instructorId}</if>
+        </where>
     </select>
 
     <select id="selectStudentByUserId" parameterType="Long" resultMap="StudentResult">

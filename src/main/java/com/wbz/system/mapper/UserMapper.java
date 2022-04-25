@@ -19,6 +19,7 @@ public interface UserMapper
      *
      */
     public List<User> selectUserByUserNamePassWordRole(LoginBody loginBody);
+    public List<User> selectUser(User user);
 
     public User selectUserByUserId(Long userId);
 
