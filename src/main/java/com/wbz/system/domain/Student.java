@@ -3,7 +3,7 @@ package com.wbz.system.domain;
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+
 
 import java.util.Date;
 
