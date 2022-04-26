@@ -60,7 +60,6 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public String checkno(String courseno, CourseInfo courseInfo) {
-        System.out.println(courseInfo.getCourseno()+"hhhhhh"+courseno);
         int size = courseInfoMapper.checkno(courseno, courseInfo.getId());
         if (size>0) return "false";
         return "true";
