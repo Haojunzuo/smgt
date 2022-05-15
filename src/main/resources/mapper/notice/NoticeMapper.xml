@@ -15,22 +15,14 @@
         <result property="urgency" jdbcType="VARCHAR" column="urgency"/>
         <result property="status" jdbcType="VARCHAR" column="status"/>
         <result property="institution" jdbcType="VARCHAR" column="institution"/>
+
+        <association property="user" column="publisher" javaType="User" resultMap="com.wbz.system.mapper.StudentMapper.userResult"/>
     </resultMap>
 
     <sql id="selectNoticeVo">
-        select id,
-               noticeNo,
-               title,
-               content,
-               publisher,
-               noticeTime,
-               endTime,
-               noticeType,
-               file,
-               urgency,
-               status,
-               institution
-        from notice_info
+        select notice.*,
+               u.*
+        from notice_info notice left join user_info u on notice.publisher=u.user_id
     </sql>
 
     <select id="selectNoticeList" parameterType="Notice" resultMap="NoticeResult">

@@ -35,6 +35,35 @@ public class Notice extends BaseEntity {
 
     private String institution;
 
+    private User user;
+
+    @Override
+    public String toString() {
+        return "Notice{" +
+                "id=" + id +
+                ", noticeno='" + noticeno + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", noticetime=" + noticetime +
+                ", endTime=" + endTime +
+                ", noticetype='" + noticetype + '\'' +
+                ", file='" + file + '\'' +
+                ", urgency='" + urgency + '\'' +
+                ", status='" + status + '\'' +
+                ", institution='" + institution + '\'' +
+                ", user=" + user +
+                '}';
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -131,21 +160,4 @@ public class Notice extends BaseEntity {
         this.endTime = endTime;
     }
 
-    @Override
-    public String toString() {
-        return "Notice{" +
-                "id=" + id +
-                ", noticeno='" + noticeno + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", noticetime=" + noticetime +
-                ", endTime=" + endTime +
-                ", noticetype='" + noticetype + '\'' +
-                ", file='" + file + '\'' +
-                ", urgency='" + urgency + '\'' +
-                ", status='" + status + '\'' +
-                ", institution='" + institution + '\'' +
-                '}';
-    }
 }
