@@ -47,4 +47,12 @@ public class MyTest {
         System.out.println(format.getClass());
         System.out.println(Double.parseDouble(format));
     }
+
+    @Test
+    public void testLogic(){
+        String a = "33";
+        String b = "rr";
+        boolean rr = a.equals("33") || b.equals("44");
+        System.out.println(rr);
+    }
 }

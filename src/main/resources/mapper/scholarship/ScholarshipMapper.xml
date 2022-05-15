@@ -15,7 +15,7 @@
     <select id="getScholarship" parameterType="Long" resultType="Scholarship">
         select stuscho.id, stuscho.semester, stuscho.scholarshipNo, stuscho.reason, stuscho.instructor_id, stuscho.status, stuscho.file, scho.`name` as scholarshipName, scho.type, scho.money, stu.studentNo, stu.nick_name as studentName, us.nick_name as instructorName
         from student_scholarship stuscho, scholarship scho, student_info stu, user_info us where stuscho.studentNo=stu.studentNo and stuscho.instructor_id = us.user_id and stuscho.scholarshipNo=scho.scholarshipNo
-        <if test="id != null  and id != ''">and stuscho.id=#{semester}</if>
+        <if test="id != null  and id != ''">and stuscho.id=#{id}</if>
     </select>
 
 
