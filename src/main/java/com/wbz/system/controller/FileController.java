@@ -56,9 +56,12 @@ public class FileController {
      * @return
      */
     @PostMapping("/upload")
-    public AjaxResult upload(MultipartFile file, Data data)
+    public AjaxResult upload(MultipartFile file, Data data, String bucket)
     {
         String bucketName = data.getBucket();
+        if(data.getBucket() == null){
+            bucketName = bucket;
+        }
         try {
             // 上传并返回访问地址
             String newFile = sysFileService.uploadFile(file,bucketName);
@@ -70,6 +73,7 @@ public class FileController {
             return AjaxResult.error(e.getMessage());
         }
     }
+
 
     @RequestMapping("/download/{fileNames}")
     public void download(HttpServletResponse response, @PathVariable String[] fileNames) throws Exception {

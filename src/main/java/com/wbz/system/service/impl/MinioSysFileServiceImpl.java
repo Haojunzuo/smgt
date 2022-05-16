@@ -21,11 +21,7 @@ import java.util.*;
 
 //import org.apache.tomcat.util.http.fileupload.IOUtils;
 
-/**
- * Minio 文件存储
- *
- * @author zhangyp
- */
+
 @Service
 public class MinioSysFileServiceImpl implements ISysFileService
 {

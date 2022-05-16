@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbz.system.mapper.ExamMapper">
+
+    <resultMap type="Exam" id="ExamResult">
+        <result property="id"    column="id"    />
+        <result property="studentId"    column="studentId"    />
+        <result property="checkId"    column="checkId"    />
+        <result property="time"    column="time"    />
+        <result property="status"    column="status"    />
+        <result property="type"    column="type"    />
+        <result property="courseNo"    column="courseNo"    />
+</resultMap>
+
+    <sql id="selectExamVo">
+        select studentId, id, time, checkId, status, type, courseNo from exam
+    </sql>
+
+    <select id="selectExamList" parameterType="Exam" resultMap="ExamResult">
+        <include refid="selectExamVo"/>
+        <where>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="studentId != null  and studentId != ''"> and studentId = #{studentId}</if>
+            <if test="courseNo != null  and courseNo != ''"> and courseNo = #{courseNo}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <select id="selectExamById" parameterType="Long" resultMap="ExamResult">
+        <include refid="selectExamVo"/>
+        where id = #{id} order by id desc
+    </select>
+
+    <insert id="insertExam" parameterType="Exam">
+        insert into exam
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">studentId,</if>
+            <if test="time != null">time,</if>
+            <if test="status != null">status,</if>
+            <if test="checkId != null">checkId,</if>
+            <if test="type != null">type,</if>
+            <if test="courseNo != null">courseNo,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">#{studentId},</if>
+            <if test="time != null">#{time},</if>
+            <if test="status != null">#{status},</if>
+            <if test="checkId != null">#{checkId},</if>
+            <if test="type != null">#{type},</if>
+            <if test="courseNo != null">#{courseNo},</if>
+         </trim>
+    </insert>
+
+    <update id="updateExam" parameterType="Exam">
+        update  exam
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="studentId != null">studentId = #{studentId},</if>
+            <if test="time != null">time = #{time},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="checkId != null">checkId = #{checkId},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="courseNo != null">courseNo = #{courseNo},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+
+    <delete id="deleteExamById" parameterType="Long">
+        delete from exam where id = #{id}
+    </delete>
+
+    <delete id="deleteExamByIds" parameterType="String">
+        delete from exam where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    <select id="judgeStaffCatCode" parameterType="String" resultMap="ExamResult">-->
+<!--        select *from staff_category where staff_cat_code = #{staffCatCode}-->
+<!--    </select>-->
+</mapper>
